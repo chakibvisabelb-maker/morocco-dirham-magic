@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 
-export type Language = "fr" | "ar";
+export type Language = "fr" | "ar" | "en";
 
 type Messages = {
   nav: { about: string; products: string; contact: string };
@@ -131,7 +131,57 @@ const messages: Record<Language, Messages> = {
       retry: "حاول مرة أخرى",
     },
   },
-};
+  en: {
+    nav: { about: "About", products: "Products", contact: "Contact" },
+    brandLine: ["For your home.", "For your comfort.", "For you."],
+    footer: {
+      where: "Where to find us",
+      contact: "Get in touch",
+      prices: "All prices are shown in Moroccan dirham (MAD).",
+    },
+    home: {
+      hero: "Timeless craftsmanship. Proven design. Make a lasting statement with Luxora",
+      collectionCta: "View the collection",
+      introTitle: "We stand for design that lasts. For your home. For you.",
+      introBody: "At LUXORA, we believe every detail matters. That is why we offer a curated selection of bathtubs, faucets, showers, fixtures and accessories that combine timeless design with lasting quality. Our products make your home more beautiful and more practical, today, tomorrow and for years to come.",
+      discover: "Discover our",
+      collections: "Collections",
+      viewProducts: "View products",
+    },
+    products: {
+      catalogue: "Catalogue",
+      title: "Everything for your bathroom",
+      intro: "All prices are shown in Moroccan dirham, converted from our suppliers' yuan pricing. Contact us for volume pricing, lead times and installation.",
+      all: "All",
+      enquire: "Request a quote",
+      enquirySubject: "Enquiry",
+    },
+    about: {
+      label: "About",
+      title: "We stand for design that lasts. For your home. For you.",
+      paragraphs: [
+        "At LUXORA, we believe every detail matters. We offer a curated selection of bathtubs, faucets, showers, fixtures and accessories that combine timeless design with lasting quality.",
+        "We work directly with our manufacturing partners to protect quality and offer fair prices. Supplier quotes are issued in Chinese yuan; every price on this site is converted and shown in Moroccan dirham.",
+        "Visit our showroom in Marrakech Gueliz to see the materials in person: stone, brushed brass, matte black steel and fine ceramic.",
+      ],
+    },
+    contact: {
+      pretitle: "Get in",
+      title: "Touch",
+      email: "Email",
+      showroom: "Showroom",
+      pricing: "Pricing",
+      pricingBody: "All prices on this site are shown in Moroccan dirham. Ask us for a full quote including delivery and installation anywhere in Morocco.",
+    },
+    errors: {
+      notFound: "Page not found",
+      notFoundBody: "The page you are looking for does not exist or has been moved.",
+      load: "This page could not be loaded",
+      loadBody: "Something went wrong. You can try again or return to the home page.",
+      home: "Home",
+      retry: "Try again",
+    },
+  },};
 
 type LanguageContextValue = {
   language: Language;
@@ -146,7 +196,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = window.localStorage.getItem("luxora-language");
-    if (saved === "fr" || saved === "ar") setLanguage(saved);
+    if (saved === "fr" || saved === "ar" || saved === "en") setLanguage(saved);
   }, []);
 
   useEffect(() => {

@@ -33,7 +33,7 @@ function AboutPage() {
       <div className="mt-14 grid gap-14 md:grid-cols-2">
         <img
           src={heroImage}
-          alt={language === "fr" ? "Vasques en pierre et baignoire en travertin" : "أحواض حجرية وحوض استحمام من الترافرتين"}
+          alt={language === "fr" ? "Vasques en pierre et baignoire en travertin" : language === "en" ? "Stone basins and a travertine bathtub" : "أحواض حجرية وحوض استحمام من الترافرتين"}
           loading="lazy"
           width={1920}
           height={1088}

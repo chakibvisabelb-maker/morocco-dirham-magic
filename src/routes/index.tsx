@@ -30,7 +30,7 @@ function Index() {
       <section className="relative">
         <img
           src={heroImage}
-          alt={language === "fr" ? "Vasques sculpturales en pierre et baignoire en travertin" : "أحواض حجرية منحوتة وحوض استحمام من الترافرتين"}
+          alt={language === "fr" ? "Vasques sculpturales en pierre et baignoire en travertin" : language === "en" ? "Sculptural stone basins and a travertine bathtub" : "أحواض حجرية منحوتة وحوض استحمام من الترافرتين"}
           width={1920}
           height={1088}
           className="h-[68vh] min-h-[420px] w-full object-cover md:h-[78vh]"
