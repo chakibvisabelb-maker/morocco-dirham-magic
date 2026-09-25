@@ -1,21 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-stone.jpg";
 import { categories } from "@/lib/products";
+import { useLanguage } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LUXORA — Bathtubs, faucets & fixtures in Marrakech" },
+      { title: "LUXORA — Baignoires, robinetterie et équipements à Marrakech" },
       {
         name: "description",
         content:
-          "Curated bathtubs, faucets, showers, fixtures and smart locks. Timeless design, lasting quality, prices in Moroccan dirham.",
+          "Baignoires, robinetterie, douches, équipements et serrures intelligentes à Marrakech. Prix en dirham marocain.",
       },
-      { property: "og:title", content: "LUXORA — For your home. For your comfort. For you." },
+      { property: "og:title", content: "LUXORA — Pour votre maison. Pour votre confort. Pour vous." },
       {
         property: "og:description",
         content:
-          "A curated selection of bathtubs, faucets, showers and fixtures, priced in Moroccan dirham.",
+          "Une sélection soignée de baignoires, robinetterie, douches et équipements, en dirham marocain.",
       },
     ],
   }),
@@ -23,12 +24,13 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { language, t } = useLanguage();
   return (
     <>
       <section className="relative">
         <img
           src={heroImage}
-          alt="Sculptural stone basins and a travertine bathtub"
+          alt={language === "fr" ? "Vasques sculpturales en pierre et baignoire en travertin" : "أحواض حجرية منحوتة وحوض استحمام من الترافرتين"}
           width={1920}
           height={1088}
           className="h-[68vh] min-h-[420px] w-full object-cover md:h-[78vh]"
@@ -36,14 +38,13 @@ function Index() {
         <div className="absolute inset-0 flex items-center justify-center bg-background/25 px-6">
           <div className="rise-in max-w-2xl text-center">
             <h1 className="text-3xl leading-tight font-medium text-foreground md:text-5xl">
-              Time-honored craft. Time-tested design. Make a statement that lasts a lifetime
-              with Luxora
+              {t.home.hero}
             </h1>
             <Link
               to="/products"
               className="eyebrow mt-8 inline-block text-foreground link-underline"
             >
-              See the collection
+              {t.home.collectionCta}
             </Link>
           </div>
         </div>
@@ -51,38 +52,34 @@ function Index() {
 
       <section className="mx-auto max-w-4xl px-6 py-24 text-center">
         <h2 className="text-xl leading-snug font-medium md:text-2xl">
-          We are for a design made to last. For your home. For you.
+          {t.home.introTitle}
         </h2>
         <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-          At LUXORA, we believe every detail matters. That's why we offer a carefully curated
-          selection of bathtubs, faucets, showers, fixtures and accessories that combine
-          timeless design with lasting quality. Our products are crafted to enhance your home
-          with both beauty and functionality, so you can enjoy spaces that feel as good as
-          they look — today, tomorrow and for years to come.
+          {t.home.introBody}
         </p>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-28">
-        <p className="eyebrow">Discover our</p>
-        <h2 className="mt-2 text-3xl font-medium md:text-4xl">Collections</h2>
+        <p className="eyebrow">{t.home.discover}</p>
+        <h2 className="mt-2 text-3xl font-medium md:text-4xl">{t.home.collections}</h2>
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((cat) => (
             <Link key={cat.slug} to="/products" className="group block">
               <div className="overflow-hidden bg-muted">
                 <img
                   src={cat.image}
-                  alt={cat.name}
+                  alt={cat.name[language]}
                   loading="lazy"
                   width={1200}
                   height={1504}
                   className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
               </div>
-              <h3 className="mt-5 text-lg font-medium">{cat.name}</h3>
+              <h3 className="mt-5 text-lg font-medium">{cat.name[language]}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {cat.description}
+                {cat.description[language]}
               </p>
-              <span className="eyebrow mt-4 inline-block text-foreground">View products</span>
+              <span className="eyebrow mt-4 inline-block text-foreground">{t.home.viewProducts}</span>
             </Link>
           ))}
         </div>
