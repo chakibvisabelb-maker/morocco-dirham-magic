@@ -9,11 +9,8 @@ export function cnyToMad(priceCny: number): number {
   return Math.round((priceCny * CNY_TO_MAD) / 10) * 10;
 }
 
-const formatter = new Intl.NumberFormat("fr-MA", {
-  maximumFractionDigits: 0,
-});
-
 /** Formats a yuan price as a dirham price, e.g. 4 990 MAD */
 export function formatMadFromCny(priceCny: number): string {
-  return `${formatter.format(cnyToMad(priceCny)).replace(/\u202f|\u00a0/g, " ")} MAD`;
+  const grouped = String(cnyToMad(priceCny)).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  return `${grouped} MAD`;
 }
