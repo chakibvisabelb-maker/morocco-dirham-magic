@@ -34,9 +34,10 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center rounded-md border border-border p-0.5" aria-label={language === "fr" ? "Choisir la langue" : "اختيار اللغة"}>
+        <div className="flex items-center rounded-md border border-border p-0.5" aria-label={language === "fr" ? "Choisir la langue" : language === "en" ? "Choose language" : "اختيار اللغة"}>
           <Languages aria-hidden="true" className="mx-2 size-4 text-muted-foreground" />
           <Button type="button" size="sm" variant={language === "fr" ? "secondary" : "ghost"} onClick={() => setLanguage("fr")} aria-pressed={language === "fr"}>FR</Button>
+          <Button type="button" size="sm" variant={language === "en" ? "secondary" : "ghost"} onClick={() => setLanguage("en")} aria-pressed={language === "en"}>EN</Button>
           <Button type="button" size="sm" variant={language === "ar" ? "secondary" : "ghost"} onClick={() => setLanguage("ar")} aria-pressed={language === "ar"}>ع</Button>
         </div>
       </div>
