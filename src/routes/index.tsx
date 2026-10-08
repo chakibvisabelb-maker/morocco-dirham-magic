@@ -64,7 +64,7 @@ function Index() {
         <h2 className="mt-2 text-3xl font-medium md:text-4xl">{t.home.collections}</h2>
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((cat) => (
-            <Link key={cat.slug} to="/products" className="group block">
+            <Link key={cat.slug} to="/products" search={{ category: cat.slug }} className="group block">
               <div className="overflow-hidden bg-muted">
                 <img
                   src={cat.image}
@@ -72,7 +72,7 @@ function Index() {
                   loading="lazy"
                   width={1200}
                   height={1504}
-                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  className="aspect-[4/5] w-full object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                 />
               </div>
               <h3 className="mt-5 text-lg font-medium">{cat.name[language]}</h3>
