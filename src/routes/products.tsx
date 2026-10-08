@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 export const Route = createFileRoute('/products')({
-  validateSearch: (search: Record<string, unknown>) => ({ category: typeof search.category === 'string' ? search.category : undefined }),
+  validateSearch: (search: Record<string, unknown>) => ({ category: typeof search['category'] === 'string' ? search['category'] : undefined }),
   head: () => ({ meta: [{ title: 'Catalogues — LUXORA Marrakech' }, { name: 'description', content: 'Tous les produits des catalogues LUXORA, avec leur présentation originale et des prix en dirham marocain.' }] }),
   component: ProductsPage,
 });
@@ -42,7 +42,7 @@ function ProductsPage() {
       {categories.map(item => <Button key={item.slug} variant={active?.slug === item.slug ? 'secondary' : 'ghost'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
     </div>
     {!active ? <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">{categories.map(item => <article key={item.slug}>
-      <button className="group block w-full cursor-pointer overflow-hidden bg-muted" onClick={() => select(item)} aria-label={`${c.open} — ${item.name[language]}`}><img src={item.image} alt={item.name[language]} width={item.pages[0].width} height={item.pages[0].height} loading="lazy" className="aspect-[4/5] w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" /></button>
+      <button className="group block w-full cursor-pointer overflow-hidden bg-muted" onClick={() => select(item)} aria-label={`${c.open} — ${item.name[language]}`}><img src={item.image} alt={item.name[language]} width={item.pages[0]!.width} height={item.pages[0]!.height} loading="lazy" className="aspect-[4/5] w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" /></button>
       <div className="mt-5 flex items-baseline justify-between gap-4"><h2 className="text-lg font-medium">{item.name[language]}</h2><span className="whitespace-nowrap text-xs text-muted-foreground">{item.pages.length} {c.pages}</span></div>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description[language]}</p>
       <Button variant="link" className="mt-3 px-0" onClick={() => select(item)}>{c.open}</Button>

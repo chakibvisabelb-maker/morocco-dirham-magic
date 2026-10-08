@@ -42,6 +42,7 @@ function Index() {
             </h1>
             <Link
               to="/products"
+              search={{ category: undefined }}
               className="eyebrow mt-8 inline-block text-foreground link-underline"
             >
               {t.home.collectionCta}
