@@ -1,3 +1,3 @@
-- [ ] Include all five complete attached catalogues with their original imagery and layouts.
-- [ ] Convert identifiable yuan prices to MAD; leave unpriced items available for enquiry.
-- [ ] Keep French, Arabic and English navigation and verify catalogue browsing.
+- [x] Include all five complete attached catalogues with their original imagery and layouts (352 pages).
+- [x] Convert identifiable yuan prices to MAD; leave unpriced items available for enquiry.
+- [x] Keep French, Arabic and English navigation and verify catalogue browsing, reference search, enlargement, language persistence and mobile layout.
