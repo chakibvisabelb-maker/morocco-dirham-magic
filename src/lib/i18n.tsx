@@ -35,7 +35,7 @@ const messages: Record<Language, Messages> = {
     footer: {
       where: "Où nous trouver",
       contact: "Nous contacter",
-      prices: "Tous les prix sont affichés en dirham marocain (MAD).",
+      prices: "Tous les prix sont affichés en dirham marocain (MAD) et en euro (EUR).",
     },
     home: {
       hero: "Un savoir-faire intemporel. Un design éprouvé. Affirmez un style qui traverse le temps avec Luxora",
@@ -86,7 +86,7 @@ const messages: Record<Language, Messages> = {
     footer: {
       where: "موقعنا",
       contact: "اتصل بنا",
-      prices: "جميع الأسعار معروضة بالدرهم المغربي (MAD).",
+      prices: "جميع الأسعار معروضة بالدرهم المغربي (MAD) واليورو (EUR).",
     },
     home: {
       hero: "حِرَفية عريقة. تصميم أثبت جودته. اصنع بصمة تدوم مدى الحياة مع لوكسورا",
@@ -137,7 +137,7 @@ const messages: Record<Language, Messages> = {
     footer: {
       where: "Where to find us",
       contact: "Get in touch",
-      prices: "All prices are shown in Moroccan dirham (MAD).",
+      prices: "All prices are shown in Moroccan dirham (MAD) and euro (EUR).",
     },
     home: {
       hero: "Timeless craftsmanship. Proven design. Make a lasting statement with Luxora",
