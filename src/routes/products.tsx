@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
-import { allCategories, topLevelCategories, lowBudgetCategories, LOW_BUDGET, type Category } from '@/lib/products';
+import { allCategories, topLevelCategories, lowBudgetCategories, lowBudgetGroup, LOW_BUDGET, type Category } from '@/lib/products';
 import { useLanguage } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -64,7 +64,7 @@ function ProductsPage() {
         <div className="mt-3 flex items-center justify-between gap-3"><Button variant="ghost" size="sm" className="px-0" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }}><Maximize2 />{c.enlarge}</Button><a className="eyebrow link-underline" href={`mailto:info@luxora.ma?subject=${encodeURIComponent(`${t.products.enquirySubject} — ${active.name[language]} — ${c.page} ${index + 1}`)}`}>{t.products.enquire}</a></div>
       </article>)}</div> : <p className="py-16 text-muted-foreground">{c.noResults}</p>}
       {current && <Dialog open={enlarged} onOpenChange={setEnlarged}><DialogContent className="max-h-[95dvh] max-w-[95vw] overflow-auto p-4"><DialogTitle>{active.name[language]} — {c.page} {current.index + 1}</DialogTitle><DialogDescription>{c.note}</DialogDescription><div className="flex items-center gap-2" dir="ltr"><Button size="icon" variant="outline" disabled={position === 0} aria-label={c.previous} onClick={() => setPage(position - 1)}><ChevronLeft /></Button><Button size="icon" variant="outline" disabled={position >= matching.length - 1} aria-label={c.next} onClick={() => setPage(position + 1)}><ChevronRight /></Button></div><img src={current.item.url} alt={`${active.name[language]} — ${c.page} ${current.index + 1}`} width={current.item.width} height={current.item.height} className="h-auto w-full" /></DialogContent></Dialog>}
-      <div className="mt-10"><Button variant="outline" onClick={() => select(inGroup ? topLevelCategories.find(item => item.slug === LOW_BUDGET) : undefined)}>{inGroup ? lowBudgetCategories.length && topLevelCategories[topLevelCategories.length - 1]!.tagline[language] : c.back}</Button></div>
+      <div className="mt-10"><Button variant="outline" onClick={() => select(inGroup ? topLevelCategories.find(item => item.slug === LOW_BUDGET) : undefined)}>{inGroup ? '← ' + lowBudgetGroup.tagline[language] : c.back}</Button></div>
     </section>}
     <p className="mt-12 text-xs leading-relaxed text-muted-foreground">{c.note}{inGroup && <> {c.lbNote}</>}</p>
   </div>;
