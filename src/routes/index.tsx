@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-stone.jpg";
-import { categories } from "@/lib/products";
+import { topLevelCategories } from "@/lib/products";
 import { useLanguage } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -64,7 +64,7 @@ function Index() {
         <p className="eyebrow">{t.home.discover}</p>
         <h2 className="mt-2 text-3xl font-medium md:text-4xl">{t.home.collections}</h2>
         <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((cat) => (
+          {topLevelCategories.map((cat) => (
             <Link key={cat.slug} to="/products" search={{ category: cat.slug }} className="group block">
               <div className="overflow-hidden bg-muted">
                 <img

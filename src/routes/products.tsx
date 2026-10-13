@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
-import { categories, type Category } from '@/lib/products';
+import { allCategories, topLevelCategories, lowBudgetCategories, lowBudgetGroup, LOW_BUDGET, type Category } from '@/lib/products';
 import { useLanguage } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -12,9 +12,9 @@ export const Route = createFileRoute('/products')({
   component: ProductsPage,
 });
 const copy = {
-  fr: { intro: 'Les cinq catalogues complets, avec leurs photos, références, dimensions et finitions originales. Les prix sont indiqués en dirham marocain (MAD) et en euro (EUR).', pages: 'pages', open: 'Consulter le catalogue', back: 'Tous les catalogues', page: 'Page', download: 'Télécharger (MAD / EUR)', search: 'Rechercher une référence…', noResults: 'Aucune page ne correspond à cette référence.', previous: 'Page précédente', next: 'Page suivante', enlarge: 'Agrandir', note: 'Présentation et texte des catalogues conservés dans leur langue originale. Taux du 9 octobre 2026 : 1 CNY = 1,48 MAD = 0,1335 EUR (MAD arrondi à 10, EUR à l’unité).', onRequest: 'Prix sur demande', unpriced: 'Ce catalogue ne contient pas de prix. Contactez-nous pour un devis.' },
-  en: { intro: 'All five complete catalogues, with their original photos, references, dimensions and finishes. Prices are shown in Moroccan dirham (MAD) and euro (EUR).', pages: 'pages', open: 'Browse catalogue', back: 'All catalogues', page: 'Page', download: 'Download (MAD / EUR)', search: 'Search a reference…', noResults: 'No pages match this reference.', previous: 'Previous page', next: 'Next page', enlarge: 'Enlarge', note: 'Catalogue layouts and text are preserved in their original language. Rate of 9 October 2026: 1 CNY = 1.48 MAD = 0.1335 EUR (MAD rounded to 10, EUR to 1).', onRequest: 'Price on request', unpriced: 'This catalogue has no listed prices. Contact us for a quote.' },
-  ar: { intro: 'الكتالوجات الخمسة كاملة بصورها ومراجعها وأبعادها وتشطيباتها الأصلية. الأسعار معروضة بالدرهم المغربي (MAD) واليورو (EUR).', pages: 'صفحة', open: 'تصفح الكتالوج', back: 'جميع الكتالوجات', page: 'صفحة', download: 'تحميل (درهم / يورو)', search: 'ابحث عن مرجع…', noResults: 'لا توجد صفحات تطابق هذا المرجع.', previous: 'الصفحة السابقة', next: 'الصفحة التالية', enlarge: 'تكبير', note: 'تم الحفاظ على تصميم الكتالوجات ونصوصها بلغتها الأصلية. سعر الصرف بتاريخ 9 أكتوبر 2026: 1 يوان = 1.48 درهم = 0.1335 يورو.', onRequest: 'السعر عند الطلب', unpriced: 'لا يحتوي هذا الكتالوج على أسعار. تواصل معنا للحصول على عرض سعر.' },
+  fr: { intro: 'Les catalogues complets, avec leurs photos, références, dimensions et finitions originales. Les prix sont indiqués en dirham marocain (MAD) et en euro (EUR).', pages: 'pages', open: 'Consulter le catalogue', back: 'Tous les catalogues', page: 'Page', download: 'Télécharger (MAD / EUR)', search: 'Rechercher une référence…', noResults: 'Aucune page ne correspond à cette référence.', previous: 'Page précédente', next: 'Page suivante', enlarge: 'Agrandir', note: 'Présentation et texte des catalogues conservés dans leur langue originale. Taux du 9 octobre 2026 : 1 CNY = 1,48 MAD = 0,1335 EUR (MAD arrondi à 10, EUR à l’unité).', lbNote: 'Sanitaire petit budget : prix FOB d’origine en EUR, convertis en MAD au taux de 1 EUR = 11,09 MAD (arrondi à l’unité).', onRequest: 'Prix sur demande', unpriced: 'Ce catalogue ne contient pas de prix. Contactez-nous pour un devis.' },
+  en: { intro: 'All the complete catalogues, with their original photos, references, dimensions and finishes. Prices are shown in Moroccan dirham (MAD) and euro (EUR).', pages: 'pages', open: 'Browse catalogue', back: 'All catalogues', page: 'Page', download: 'Download (MAD / EUR)', search: 'Search a reference…', noResults: 'No pages match this reference.', previous: 'Previous page', next: 'Next page', enlarge: 'Enlarge', note: 'Catalogue layouts and text are preserved in their original language. Rate of 9 October 2026: 1 CNY = 1.48 MAD = 0.1335 EUR (MAD rounded to 10, EUR to 1).', lbNote: 'Low Budget Sanitary: original FOB prices in EUR, converted to MAD at 1 EUR = 11.09 MAD (rounded to 1).', onRequest: 'Price on request', unpriced: 'This catalogue has no listed prices. Contact us for a quote.' },
+  ar: { intro: 'الكتالوجات كاملة بصورها ومراجعها وأبعادها وتشطيباتها الأصلية. الأسعار معروضة بالدرهم المغربي (MAD) واليورو (EUR).', pages: 'صفحة', open: 'تصفح الكتالوج', back: 'جميع الكتالوجات', page: 'صفحة', download: 'تحميل (درهم / يورو)', search: 'ابحث عن مرجع…', noResults: 'لا توجد صفحات تطابق هذا المرجع.', previous: 'الصفحة السابقة', next: 'الصفحة التالية', enlarge: 'تكبير', note: 'تم الحفاظ على تصميم الكتالوجات ونصوصها بلغتها الأصلية. سعر الصرف بتاريخ 9 أكتوبر 2026: 1 يوان = 1.48 درهم = 0.1335 يورو.', lbNote: 'الأدوات الصحية الاقتصادية: أسعار FOB الأصلية باليورو، محوّلة إلى الدرهم بسعر 1 يورو = 11.09 درهم.', onRequest: 'السعر عند الطلب', unpriced: 'لا يحتوي هذا الكتالوج على أسعار. تواصل معنا للحصول على عرض سعر.' },
 };
 
 function ProductsPage() {
@@ -25,7 +25,10 @@ function ProductsPage() {
   const [page, setPage] = useState(0);
   const [query, setQuery] = useState('');
   const [enlarged, setEnlarged] = useState(false);
-  const active = categories.find(item => item.slug === category);
+  const active = allCategories.find(item => item.slug === category);
+  const inGroup = category === LOW_BUDGET || active?.group === LOW_BUDGET;
+  const overview = !active;
+  const showAll = !category;
   function select(item?: Category) {
     setPage(0); setQuery('');
     void navigate({ search: { category: item?.slug } });
@@ -38,11 +41,15 @@ function ProductsPage() {
     <h1 className="mt-2 text-4xl font-medium md:text-5xl">{t.products.title}</h1>
     <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">{c.intro}</p>
     <div className="mt-10 flex flex-wrap gap-2 border-b border-border pb-5">
-      <Button variant={!active ? 'secondary' : 'ghost'} onClick={() => select()}>{t.products.all}</Button>
-      {categories.map(item => <Button key={item.slug} variant={active?.slug === item.slug ? 'secondary' : 'ghost'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
+      <Button variant={showAll ? 'secondary' : 'ghost'} onClick={() => select()}>{t.products.all}</Button>
+      {topLevelCategories.map(item => <Button key={item.slug} variant={(item.slug === LOW_BUDGET ? inGroup : active?.slug === item.slug) ? 'secondary' : 'ghost'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
     </div>
-    {!active ? <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">{categories.map(item => <article key={item.slug}>
-      <button className="group block w-full cursor-pointer overflow-hidden bg-muted" onClick={() => select(item)} aria-label={`${c.open} — ${item.name[language]}`}><img src={item.image} alt={item.name[language]} width={item.pages[0]!.width} height={item.pages[0]!.height} loading="lazy" className="aspect-[4/5] w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" /></button>
+    {inGroup && <div className="mt-4 flex flex-wrap gap-2">
+      <Button size="sm" variant={category === LOW_BUDGET ? 'secondary' : 'outline'} onClick={() => select(topLevelCategories.find(item => item.slug === LOW_BUDGET))}>{t.products.all}</Button>
+      {lowBudgetCategories.map(item => <Button key={item.slug} size="sm" variant={active?.slug === item.slug ? 'secondary' : 'outline'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
+    </div>}
+    {overview ? <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">{(inGroup ? lowBudgetCategories : topLevelCategories).map(item => <article key={item.slug}>
+      <button className="group block w-full cursor-pointer overflow-hidden bg-muted" onClick={() => select(item)} aria-label={`${c.open} — ${item.name[language]}`}><img src={item.image} alt={item.name[language]} width={item.pages[0]!.width} height={item.pages[0]!.height} loading="lazy" className={`${inGroup ? "aspect-[4/3]" : "aspect-[4/5]"} w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]`} /></button>
       <div className="mt-5 flex items-baseline justify-between gap-4"><h2 className="text-lg font-medium">{item.name[language]}</h2><span className="whitespace-nowrap text-xs text-muted-foreground">{item.pages.length} {c.pages}</span></div>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description[language]}</p>
       <Button variant="link" className="mt-3 px-0" onClick={() => select(item)}>{c.open}</Button>
@@ -57,8 +64,8 @@ function ProductsPage() {
         <div className="mt-3 flex items-center justify-between gap-3"><Button variant="ghost" size="sm" className="px-0" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }}><Maximize2 />{c.enlarge}</Button><a className="eyebrow link-underline" href={`mailto:info@luxora.ma?subject=${encodeURIComponent(`${t.products.enquirySubject} — ${active.name[language]} — ${c.page} ${index + 1}`)}`}>{t.products.enquire}</a></div>
       </article>)}</div> : <p className="py-16 text-muted-foreground">{c.noResults}</p>}
       {current && <Dialog open={enlarged} onOpenChange={setEnlarged}><DialogContent className="max-h-[95dvh] max-w-[95vw] overflow-auto p-4"><DialogTitle>{active.name[language]} — {c.page} {current.index + 1}</DialogTitle><DialogDescription>{c.note}</DialogDescription><div className="flex items-center gap-2" dir="ltr"><Button size="icon" variant="outline" disabled={position === 0} aria-label={c.previous} onClick={() => setPage(position - 1)}><ChevronLeft /></Button><Button size="icon" variant="outline" disabled={position >= matching.length - 1} aria-label={c.next} onClick={() => setPage(position + 1)}><ChevronRight /></Button></div><img src={current.item.url} alt={`${active.name[language]} — ${c.page} ${current.index + 1}`} width={current.item.width} height={current.item.height} className="h-auto w-full" /></DialogContent></Dialog>}
-      <div className="mt-10"><Button variant="outline" onClick={() => select()}>{c.back}</Button></div>
+      <div className="mt-10"><Button variant="outline" onClick={() => select(inGroup ? topLevelCategories.find(item => item.slug === LOW_BUDGET) : undefined)}>{inGroup ? '← ' + lowBudgetGroup.tagline[language] : c.back}</Button></div>
     </section>}
-    <p className="mt-12 text-xs leading-relaxed text-muted-foreground">{c.note}</p>
+    <p className="mt-12 text-xs leading-relaxed text-muted-foreground">{c.note}{inGroup && <> {c.lbNote}</>}</p>
   </div>;
 }
