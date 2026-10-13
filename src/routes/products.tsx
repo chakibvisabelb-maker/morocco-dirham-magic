@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
-import { categories, type Category } from '@/lib/products';
+import { allCategories, topLevelCategories, lowBudgetCategories, LOW_BUDGET, type Category } from '@/lib/products';
 import { useLanguage } from '@/lib/i18n';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -25,7 +25,10 @@ function ProductsPage() {
   const [page, setPage] = useState(0);
   const [query, setQuery] = useState('');
   const [enlarged, setEnlarged] = useState(false);
-  const active = categories.find(item => item.slug === category);
+  const active = allCategories.find(item => item.slug === category);
+  const inGroup = category === LOW_BUDGET || active?.group === LOW_BUDGET;
+  const overview = !active;
+  const showAll = !category;
   function select(item?: Category) {
     setPage(0); setQuery('');
     void navigate({ search: { category: item?.slug } });
@@ -38,10 +41,14 @@ function ProductsPage() {
     <h1 className="mt-2 text-4xl font-medium md:text-5xl">{t.products.title}</h1>
     <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">{c.intro}</p>
     <div className="mt-10 flex flex-wrap gap-2 border-b border-border pb-5">
-      <Button variant={!active ? 'secondary' : 'ghost'} onClick={() => select()}>{t.products.all}</Button>
-      {categories.map(item => <Button key={item.slug} variant={active?.slug === item.slug ? 'secondary' : 'ghost'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
+      <Button variant={showAll ? 'secondary' : 'ghost'} onClick={() => select()}>{t.products.all}</Button>
+      {topLevelCategories.map(item => <Button key={item.slug} variant={(item.slug === LOW_BUDGET ? inGroup : active?.slug === item.slug) ? 'secondary' : 'ghost'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
     </div>
-    {!active ? <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">{categories.map(item => <article key={item.slug}>
+    {inGroup && <div className="mt-4 flex flex-wrap gap-2">
+      <Button size="sm" variant={category === LOW_BUDGET ? 'secondary' : 'outline'} onClick={() => select(topLevelCategories.find(item => item.slug === LOW_BUDGET))}>{t.products.all}</Button>
+      {lowBudgetCategories.map(item => <Button key={item.slug} size="sm" variant={active?.slug === item.slug ? 'secondary' : 'outline'} onClick={() => select(item)}>{item.tagline[language]}</Button>)}
+    </div>}
+    {overview ? <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">{(inGroup ? lowBudgetCategories : topLevelCategories).map(item => <article key={item.slug}>
       <button className="group block w-full cursor-pointer overflow-hidden bg-muted" onClick={() => select(item)} aria-label={`${c.open} — ${item.name[language]}`}><img src={item.image} alt={item.name[language]} width={item.pages[0]!.width} height={item.pages[0]!.height} loading="lazy" className="aspect-[4/5] w-full object-contain transition-transform duration-700 group-hover:scale-[1.02]" /></button>
       <div className="mt-5 flex items-baseline justify-between gap-4"><h2 className="text-lg font-medium">{item.name[language]}</h2><span className="whitespace-nowrap text-xs text-muted-foreground">{item.pages.length} {c.pages}</span></div>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description[language]}</p>
