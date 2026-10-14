@@ -3,3 +3,4 @@
 - [x] Keep French, Arabic and English navigation and verify catalogue browsing, reference search, enlargement, language persistence and mobile layout.
 - [x] Restore original EUR prices beside current prices in all Low Budget Sanitary images and downloads; verify the display.
 - [x] Multiply the displayed original prices by 1.7 in Low Budget images and PDFs; preserve current prices and verify.
+- [ ] Change only Low Budget Taps page 2 from source ×4 to ×5 in the image, PDF and searchable text; verify all other prices remain unchanged.
