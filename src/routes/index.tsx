@@ -7,6 +7,8 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "LUXORA — Baignoires, robinetterie et équipements à Marrakech" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         name: "description",
         content:

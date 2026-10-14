@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 
 export const Route = createFileRoute('/products')({
   validateSearch: (search: Record<string, unknown>) => ({ category: typeof search['category'] === 'string' ? search['category'] : undefined }),
-  head: () => ({ meta: [{ title: 'Catalogues — LUXORA Marrakech' }, { name: 'description', content: 'Tous les produits des catalogues LUXORA, avec leur présentation originale et des prix en dirham marocain.' }] }),
+  head: () => ({ meta: [{ title: 'Catalogues — LUXORA Marrakech' }, { name: 'description', content: 'Tous les produits des catalogues LUXORA, avec leur présentation originale et des prix en dirham marocain.' }, { property: 'og:title', content: 'Catalogues — LUXORA Marrakech' }, { property: 'og:description', content: 'Les catalogues LUXORA avec prix en MAD et EUR, et prix FOB originaux pour le sanitaire petit budget.' }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }),
   component: ProductsPage,
 });
 const copy = {
