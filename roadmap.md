@@ -2,4 +2,4 @@
 - [x] Convert identifiable yuan prices to MAD; leave unpriced items available for enquiry.
 - [x] Keep French, Arabic and English navigation and verify catalogue browsing, reference search, enlargement, language persistence and mobile layout.
 - [x] Restore original EUR prices beside current prices in all Low Budget Sanitary images and downloads; verify the display.
-- [ ] Multiply the displayed original prices by 1.7 in Low Budget images and PDFs; preserve current prices and verify.
+- [x] Multiply the displayed original prices by 1.7 in Low Budget images and PDFs; preserve current prices and verify.
