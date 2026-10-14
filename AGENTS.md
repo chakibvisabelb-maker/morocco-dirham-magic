@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Low Budget catalogue page images and downloadable PDFs must be generated together from the uploaded source PDFs, with their media pointers and searchable text updated together to keep all views consistent.
