@@ -39,10 +39,8 @@ function ProductsPage() {
   const current = matching[position];
   const pager = <div className="flex items-center justify-center gap-2" dir="ltr"><Button size="icon" variant="outline" disabled={position === 0} aria-label={c.previous} onClick={() => setPage(position - 1)}><ChevronLeft /></Button><Button size="icon" variant="outline" disabled={position >= matching.length - 1} aria-label={c.next} onClick={() => setPage(position + 1)}><ChevronRight /></Button></div>;
   return <div className="mx-auto max-w-7xl px-6 py-20">
-    <p className="eyebrow">{t.products.catalogue}</p>
-    <h1 className="mt-2 text-4xl font-medium md:text-5xl">{t.products.title}</h1>
-    <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">{c.intro}</p>
-    <div className="mt-10 flex flex-wrap gap-2 border-b border-border pb-5">
+    <div className="flex flex-wrap gap-2 border-b border-border pb-5">
+
       <Button variant={!inGroup ? 'secondary' : 'ghost'} onClick={() => select()}>{segments[language].high}</Button>
       <Button variant={inGroup ? 'secondary' : 'ghost'} onClick={() => select(lowBudgetGroup)}>{segments[language].low}</Button>
     </div>
