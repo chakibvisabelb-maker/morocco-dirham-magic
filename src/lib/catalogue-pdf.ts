@@ -39,11 +39,21 @@ function triggerDownload(blob: Blob, filename: string) {
 
 export type SaveOutcome = 'saved' | 'shared' | 'downloaded' | 'cancelled';
 
+// The location picker only works in a top-level window: inside an iframe (the
+// editor preview) it is blocked, so there we go straight to a plain download.
+function canPickLocation() {
+  try {
+    return window.top === window.self;
+  } catch {
+    return false;
+  }
+}
+
 // Must be called synchronously from the click handler so the browser keeps the
 // user activation the save dialog needs. The PDF is therefore built in advance.
 export async function saveToComputer(blob: Blob, filename: string): Promise<SaveOutcome> {
   const picker = (window as unknown as { showSaveFilePicker?: SaveFilePicker }).showSaveFilePicker;
-  if (typeof picker === 'function') {
+  if (typeof picker === 'function' && canPickLocation()) {
     try {
       const handle = await picker({
         suggestedName: filename,
