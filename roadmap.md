@@ -10,3 +10,4 @@
 - [x] Move the basin pages out of Fixtures into the Basins tab (37 pages); Fixtures keeps cabinets, bathtubs, faucets and quartz sinks; verify both tabs.
 - [x] Bathtubs tab: move the pages originally numbered 2–21 (pools, spas, custom tubs) to the bottom of the tab; verify grid order and that no page is lost or duplicated.
 - [x] Renumber printed catalogue pages in every category to match the current tab order, including enlargement and generated PDFs; verified all 12 categories, French/English/Arabic, and full/search PDF downloads.
+- [x] Remove all prices from every section, tab, catalogue image and PDF; preserve product details and verify both segments.

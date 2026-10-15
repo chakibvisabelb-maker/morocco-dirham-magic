@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Bathtubs, faucets, showers and fixtures for your home — Marrakech showroom, prices in dirham.",
+          "Bathtubs, faucets, showers and fixtures for your home — Marrakech showroom.",
       },
       { name: "author", content: "LUXORA" },
       { property: "og:title", content: "LUXORA" },

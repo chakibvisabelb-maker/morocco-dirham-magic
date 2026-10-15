@@ -10,7 +10,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Visitez le showroom Luxora à Marrakech Guéliz ou contactez info@luxora.ma pour nos tarifs en dirham.",
+          "Visitez le showroom Luxora à Marrakech Guéliz ou contactez info@luxora.ma pour votre projet.",
       },
       { property: "og:title", content: "Contact — LUXORA" },
       {
