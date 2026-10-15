@@ -31,7 +31,7 @@ function ProductsPage() {
   const [pdf, setPdf] = useState<{ blob: Blob; url: string }>();
   const [pdfState, setPdfState] = useState<'idle' | 'busy' | 'ready' | 'error'>('idle');
   const [savedNote, setSavedNote] = useState<string>();
-  const pdfRef = useRef<{ url: string }>();
+  const pdfRef = useRef<{ url: string } | undefined>(undefined);
   const active = allCategories.find(item => item.slug === category);
   const inGroup = category === LOW_BUDGET || active?.group === LOW_BUDGET;
   const overview = !active;
