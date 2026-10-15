@@ -35,6 +35,8 @@
   --color-ring: var(--ring);
   --color-stone-deep: var(--stone-deep);
   --color-sand: var(--sand);
+  --color-menu-surface: var(--menu-surface);
+  --color-menu-foreground: var(--menu-foreground);
   --font-sans: "Instrument Sans", "Noto Sans Arabic", ui-sans-serif, system-ui, sans-serif;
   --tracking-display: -0.02em;
 }
@@ -62,6 +64,12 @@
   --ring: oklch(0.66 0.072 75);
   --stone-deep: oklch(0.32 0.014 70);
   --sand: oklch(0.91 0.021 75);
+  --menu-surface: oklch(1 0 0);
+  --menu-foreground: oklch(0.36 0.018 275);
+}
+
+.site-menu {
+  font-family: Arial, "Noto Sans Arabic", sans-serif;
 }
 
 @layer base {

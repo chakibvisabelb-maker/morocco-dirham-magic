@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Languages } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/lib/i18n";
 
 const nav = [
@@ -12,34 +12,33 @@ const nav = [
 export function SiteHeader() {
   const { language, setLanguage, t } = useLanguage();
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-10 gap-y-3 px-6 py-5">
-        <Link to="/" className="shrink-0">
-          <span className="text-3xl font-semibold tracking-[-0.06em] text-foreground md:text-4xl">
-            LUXORA
-          </span>
-        </Link>
-        <p className="hidden text-sm leading-snug font-medium text-foreground lg:block">
-          {t.brandLine.map((line) => <span key={line}>{line}<br /></span>)}
-        </p>
-        <nav className="ms-auto flex items-center gap-4 text-xs tracking-[0.18em] uppercase md:gap-7">
+    <header className="site-menu sticky top-0 z-50 bg-menu-surface text-menu-foreground">
+      <div className="mx-auto flex min-h-24 max-w-[1440px] items-end justify-between gap-3 px-4 pb-6 md:min-h-[210px] md:px-16 md:pb-10">
+        <nav aria-label={language === "fr" ? "Navigation principale" : language === "ar" ? "القائمة الرئيسية" : "Main navigation"} className="flex flex-1 items-center justify-between gap-3 pe-3 text-sm font-normal tracking-normal uppercase md:pe-20 md:text-4xl">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="link-underline text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className="decoration-1 underline-offset-4 hover:underline focus-visible:underline"
             >
               {t.nav[item.key]}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center rounded-md border border-border p-0.5" aria-label={language === "fr" ? "Choisir la langue" : language === "en" ? "Choose language" : "اختيار اللغة"}>
-          <Languages aria-hidden="true" className="mx-2 size-4 text-muted-foreground" />
-          <Button type="button" size="sm" variant={language === "fr" ? "secondary" : "ghost"} onClick={() => setLanguage("fr")} aria-pressed={language === "fr"}>FR</Button>
-          <Button type="button" size="sm" variant={language === "en" ? "secondary" : "ghost"} onClick={() => setLanguage("en")} aria-pressed={language === "en"}>EN</Button>
-          <Button type="button" size="sm" variant={language === "ar" ? "secondary" : "ghost"} onClick={() => setLanguage("ar")} aria-pressed={language === "ar"}>ع</Button>
-        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-auto shrink-0 rounded-none p-0 text-sm font-normal text-menu-foreground hover:bg-transparent hover:text-menu-foreground md:text-4xl" aria-label={language === "fr" ? "Choisir la langue" : language === "en" ? "Choose language" : "اختيار اللغة"}>
+              <span dir="ltr"><span className={language === "en" ? "underline underline-offset-4" : ""}>EN</span>/<span className={language === "fr" ? "underline underline-offset-4" : ""}>FR</span>{language === "ar" && "/ع"}</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuRadioGroup value={language} onValueChange={(value) => { if (value === "en" || value === "fr" || value === "ar") setLanguage(value); }}>
+              <DropdownMenuRadioItem value="en">English</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="fr">Français</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="ar">العربية</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );
