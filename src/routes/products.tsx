@@ -34,7 +34,7 @@ function ProductsPage() {
   const overview = !active;
   const showAll = !category;
   function select(item?: Category) {
-    setPage(0); setQuery('');
+    setPage(0); setQuery(''); setPdfUrl(undefined);
     void navigate({ search: { category: item?.slug } });
   }
   const matching = active?.pages.map((item, index) => ({ item, index })).filter(({ item }) => (item.text + ' ' + (item.frText ?? '')).toLowerCase().includes(query.trim().toLowerCase())) ?? [];
@@ -67,7 +67,7 @@ function ProductsPage() {
       <Button variant="link" className="mt-3 px-0" onClick={() => select(item)}>{c.open}</Button>
     </article>)}</div> : <section className="mt-10">
       <div className="flex flex-wrap items-center justify-between gap-4"><h2 className="text-2xl font-medium">{active.name[language]}</h2><div className="flex flex-col items-end gap-1"><Button variant="outline" disabled={pdfState === 'busy' || !matching.length} onClick={() => void downloadPdf()}><Download />{pdfState === 'busy' ? c.creating : `${c.download} · ${matching.length} ${c.pages}`}</Button>{pdfState === 'error' && <span role="alert" className="text-xs text-destructive">{c.failed}</span>}{pdfUrl && pdfState === 'idle' && <a className="text-xs underline" href={pdfUrl} download={`luxora-${active.slug}.pdf`}>{c.again}</a>}</div></div>
-      {active.slug === 'locks' ? <p className="mt-4 text-sm text-muted-foreground">{c.unpriced}</p> : <label className="mt-6 flex max-w-sm items-center gap-3 rounded-md border border-border px-3"><Search className="size-4 shrink-0 text-muted-foreground" /><input className="h-11 min-w-0 w-full bg-transparent text-sm outline-none" aria-label={c.search} placeholder={c.search} value={query} onChange={event => { setQuery(event.target.value); setPage(0); }} /></label>}
+      {active.slug === 'locks' ? <p className="mt-4 text-sm text-muted-foreground">{c.unpriced}</p> : <label className="mt-6 flex max-w-sm items-center gap-3 rounded-md border border-border px-3"><Search className="size-4 shrink-0 text-muted-foreground" /><input className="h-11 min-w-0 w-full bg-transparent text-sm outline-none" aria-label={c.search} placeholder={c.search} value={query} onChange={event => { setQuery(event.target.value); setPage(0); setPdfUrl(undefined); }} /></label>}
       {matching.length ? <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">{matching.map(({ item, index }) => <article key={item.url} className="flex flex-col">
         <button className="group block w-full cursor-pointer overflow-hidden border border-border bg-muted" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }} aria-label={`${c.enlarge} — ${c.page} ${index + 1}`}>
           <img src={(language === 'fr' && item.frUrl) || item.url} alt={`${active.name[language]} — ${c.page} ${index + 1}`} width={item.width} height={item.height} loading="lazy" className="aspect-[4/3] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
