@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
-import { buildCataloguePdf } from '@/lib/catalogue-pdf';
+import { buildCataloguePdf, saveToComputer } from '@/lib/catalogue-pdf';
 import { CataloguePageImage } from '@/components/catalogue-page-image';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
 import { allCategories, categories, topLevelCategories, lowBudgetCategories, lowBudgetGroup, LOW_BUDGET, type Category } from '@/lib/products';
