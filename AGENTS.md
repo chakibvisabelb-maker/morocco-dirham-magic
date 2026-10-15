@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - Low Budget catalogue page images and downloadable PDFs must be generated together from the uploaded source PDFs, with their media pointers and searchable text updated together to keep all views consistent.
+- Apply category-order numbering through the shared browser image renderer for both catalogue display and generated PDFs; source-derived number regions mask old badges without changing product content, and search retains each page's category number.

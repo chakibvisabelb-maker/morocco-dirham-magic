@@ -1,15 +1,13 @@
-// ============= Full file contents =============
+import { numberCatalogueImage } from '@/lib/catalogue-numbering';
 
 // Builds a PDF in the browser from the catalogue page images currently shown.
-export async function buildCataloguePdf(urls: string[]): Promise<Blob> {
+export async function buildCataloguePdf(pages: { url: string; number: number }[]): Promise<Blob> {
   const { PDFDocument } = await import('pdf-lib');
   const pdf = await PDFDocument.create();
-  const images = await Promise.all(urls.map(async url => {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Image ${res.status}`);
-    return new Uint8Array(await res.arrayBuffer());
-  }));
-  for (const bytes of images) {
+  // Process sequentially to avoid holding dozens of full-size canvases in memory.
+  for (const item of pages) {
+    const blob = await numberCatalogueImage(item.url, item.number);
+    const bytes = new Uint8Array(await blob.arrayBuffer());
     const isPng = bytes[0] === 0x89 && bytes[1] === 0x50;
     const img = isPng ? await pdf.embedPng(bytes) : await pdf.embedJpg(bytes);
     const scale = 0.45; // image pixels -> PDF points
