@@ -6,8 +6,8 @@ import locks from '@/assets/catalogues/locks.json';
 import lowbudget from '@/assets/catalogues/lowbudget.json';
 
 export type Localized = { fr: string; en: string; ar: string };
-export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number };
-export type Category = { slug: string; name: Localized; tagline: Localized; description: Localized; image: string; pages: CataloguePage[]; pdf: string; group?: string };
+export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string };
+export type Category = { slug: string; name: Localized; tagline: Localized; description: Localized; image: string; pages: CataloguePage[]; pdf: string; pdfFr?: string; group?: string };
 
 export const categories: Category[] = [
   { ...bathtubs, name: { fr: 'Baignoires et spas', en: 'Bathtubs & spas', ar: 'أحواض الاستحمام والسبا' }, tagline: { fr: 'Baignoires', en: 'Bathtubs', ar: 'أحواض الاستحمام' }, description: { fr: 'Toutes les baignoires, piscines et spas du catalogue original.', en: 'Every bathtub, swimming pool and spa from the original catalogue.', ar: 'جميع أحواض الاستحمام والمسابح والسبا من الكتالوج الأصلي.' }, image: bathtubs.pages[0]!.url },
