@@ -22,5 +22,7 @@ export function CataloguePageImage({ src, number, alt, width, height, className 
     observer.observe(element);
     return () => { cancelled = true; observer.disconnect(); if (objectUrl) URL.revokeObjectURL(objectUrl); };
   }, [src, number, key]);
-  return <img ref={ref} src={image?.key === key ? image.url : undefined} alt={alt} width={width} height={numberedPageHeight(src, height)} className={className} />;
+  const outputHeight = numberedPageHeight(src, height);
+  const placeholder = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${outputHeight}"/>`)}`;
+  return <img ref={ref} src={image?.key === key ? image.url : placeholder} alt={alt} width={width} height={outputHeight} className={className} />;
 }
