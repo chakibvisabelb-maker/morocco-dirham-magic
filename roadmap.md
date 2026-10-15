@@ -7,3 +7,4 @@
 - [x] French text inside catalogue pages (machine-assisted; text baked into photos stays English)
 - [x] Make the catalogue PDF save to the computer: build it before the click, then hand it to a save dialog (top-level) or a plain download (preview frame); verify on Low Budget Toilets and the 37-page basins catalogue.
 - [x] Faucets & Showers: remove the 38 tap pages (now in the Robinets tab) so no page appears in both tabs; verify both tabs and the download.
+- [x] Move the basin pages out of Fixtures into the Basins tab (37 pages); Fixtures keeps cabinets, bathtubs, faucets and quartz sinks; verify both tabs.
