@@ -13,8 +13,9 @@ export function SiteHeader() {
   const { language, setLanguage, t } = useLanguage();
   return (
     <header className="site-menu sticky top-0 z-50 bg-menu-surface text-menu-foreground">
-      <div className="mx-auto flex min-h-24 max-w-[1440px] items-end justify-between gap-3 px-4 pb-6 md:min-h-[210px] md:px-16 md:pb-10">
-        <nav aria-label={language === "fr" ? "Navigation principale" : language === "ar" ? "القائمة الرئيسية" : "Main navigation"} className="flex flex-1 items-center justify-between gap-3 pe-3 text-sm font-normal tracking-normal uppercase md:pe-20 md:text-4xl">
+      <div className="mx-auto flex min-h-16 max-w-[1440px] items-center justify-between gap-3 px-4 py-4 md:min-h-20 md:px-16">
+        <nav aria-label={language === "fr" ? "Navigation principale" : language === "ar" ? "القائمة الرئيسية" : "Main navigation"} className="flex flex-1 items-center justify-between gap-6 pe-3 text-sm font-normal tracking-normal uppercase md:pe-20">
+
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -27,7 +28,7 @@ export function SiteHeader() {
         </nav>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-auto shrink-0 rounded-none p-0 text-sm font-normal text-menu-foreground hover:bg-transparent hover:text-menu-foreground md:text-4xl" aria-label={language === "fr" ? "Choisir la langue" : language === "en" ? "Choose language" : "اختيار اللغة"}>
+            <Button variant="ghost" className="h-auto shrink-0 rounded-none p-0 text-sm font-normal text-menu-foreground hover:bg-transparent hover:text-menu-foreground" aria-label={language === "fr" ? "Choisir la langue" : language === "en" ? "Choose language" : "اختيار اللغة"}>
               <span dir="ltr"><span className={language === "en" ? "underline underline-offset-4" : ""}>EN</span>/<span className={language === "fr" ? "underline underline-offset-4" : ""}>FR</span>{language === "ar" && "/ع"}</span>
             </Button>
           </DropdownMenuTrigger>
