@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 - Low Budget catalogue page images and downloadable PDFs must be generated together from the uploaded source PDFs, with their media pointers and searchable text updated together to keep all views consistent.
 - Apply category-order numbering through the shared browser image renderer for both catalogue display and generated PDFs; source-derived number regions mask old badges without changing product content, and search retains each page's category number.
+- Regenerate price-free catalogue images, PDF pointers and searchable text as one source-derived asset update; shared numbering continues to apply to display and downloads so all views stay consistent.

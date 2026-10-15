@@ -12,13 +12,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Baignoires, robinetterie, douches, équipements et serrures intelligentes à Marrakech. Prix en dirham marocain.",
+          "Baignoires, robinetterie, douches, équipements et serrures intelligentes à Marrakech.",
       },
       { property: "og:title", content: "LUXORA — Pour votre maison. Pour votre confort. Pour vous." },
       {
         property: "og:description",
         content:
-          "Une sélection soignée de baignoires, robinetterie, douches et équipements, en dirham marocain.",
+          "Une sélection soignée de baignoires, robinetterie, douches et équipements.",
       },
     ],
   }),

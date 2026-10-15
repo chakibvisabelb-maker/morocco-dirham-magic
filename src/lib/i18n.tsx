@@ -35,7 +35,7 @@ const messages: Record<Language, Messages> = {
     footer: {
       where: "Où nous trouver",
       contact: "Nous contacter",
-      prices: "Tous les prix sont affichés en dirham marocain (MAD) et en euro (EUR).",
+      prices: "",
     },
     home: {
       hero: "Un savoir-faire intemporel. Un design éprouvé. Affirmez un style qui traverse le temps avec Luxora",
@@ -49,7 +49,7 @@ const messages: Record<Language, Messages> = {
     products: {
       catalogue: "Catalogue",
       title: "Tout pour votre salle de bains",
-      intro: "Tous les prix sont affichés en dirham marocain, après conversion des tarifs de nos fournisseurs en yuans. Contactez-nous pour les tarifs en volume, les délais et l’installation.",
+      intro: "Contactez-nous pour un devis, les délais et l’installation.",
       all: "Tous",
       enquire: "Demander un devis",
       enquirySubject: "Demande de renseignements",
@@ -59,7 +59,7 @@ const messages: Record<Language, Messages> = {
       title: "Nous défendons un design fait pour durer. Pour votre maison. Pour vous.",
       paragraphs: [
         "Chez LUXORA, nous pensons que chaque détail compte. Nous proposons une sélection soignée de baignoires, robinets, douches, équipements et accessoires qui allient design intemporel et qualité durable.",
-        "Nous travaillons directement avec nos partenaires fabricants afin de préserver la qualité et de proposer des prix justes. Les devis fournisseurs sont établis en yuans chinois ; tous les prix de ce site sont convertis et affichés en dirham marocain.",
+        "Nous travaillons directement avec nos partenaires fabricants afin de préserver la qualité et de sélectionner des produits durables.",
         "Visitez notre showroom à Marrakech Guéliz pour découvrir les matières en personne : pierre, laiton brossé, acier noir mat et céramique fine.",
       ],
     },
@@ -68,8 +68,8 @@ const messages: Record<Language, Messages> = {
       title: "Contact",
       email: "E-mail",
       showroom: "Showroom",
-      pricing: "Tarifs",
-      pricingBody: "Tous les prix de ce site sont affichés en dirham marocain. Demandez-nous un devis complet incluant la livraison et l’installation partout au Maroc.",
+      pricing: "Votre projet",
+      pricingBody: "Demandez-nous un devis complet incluant la livraison et l’installation partout au Maroc.",
     },
     errors: {
       notFound: "Page introuvable",
@@ -86,7 +86,7 @@ const messages: Record<Language, Messages> = {
     footer: {
       where: "موقعنا",
       contact: "اتصل بنا",
-      prices: "جميع الأسعار معروضة بالدرهم المغربي (MAD) واليورو (EUR).",
+      prices: "",
     },
     home: {
       hero: "حِرَفية عريقة. تصميم أثبت جودته. اصنع بصمة تدوم مدى الحياة مع لوكسورا",
@@ -100,7 +100,7 @@ const messages: Record<Language, Messages> = {
     products: {
       catalogue: "الكتالوج",
       title: "كل ما تحتاجه لحمّامك",
-      intro: "جميع الأسعار معروضة بالدرهم المغربي بعد تحويل أسعار موردينا من اليوان. اتصل بنا لمعرفة أسعار الكميات ومواعيد التسليم والتركيب.",
+      intro: "اتصل بنا للحصول على عرض ومواعيد التسليم والتركيب.",
       all: "الكل",
       enquire: "اطلب عرضاً",
       enquirySubject: "استفسار",
@@ -110,7 +110,7 @@ const messages: Record<Language, Messages> = {
       title: "نؤمن بتصميم يدوم طويلاً. لمنزلك. لك أنت.",
       paragraphs: [
         "في LUXORA، نؤمن بأن كل تفصيل مهم. نقدم تشكيلة مختارة بعناية من أحواض الاستحمام والصنابير والدُش والتجهيزات والإكسسوارات التي تجمع بين التصميم الخالد والجودة الدائمة.",
-        "نعمل مباشرة مع شركائنا المصنّعين للحفاظ على الجودة وتقديم أسعار عادلة. تصدر عروض الموردين باليوان الصيني، بينما تُحوّل جميع الأسعار في هذا الموقع وتُعرض بالدرهم المغربي.",
+        "نعمل مباشرة مع شركائنا المصنّعين للحفاظ على الجودة واختيار منتجات تدوم.",
         "زوروا معرضنا في مراكش كليز لاكتشاف الخامات عن قرب: الحجر والنحاس المصقول والفولاذ الأسود المطفي والسيراميك الفاخر.",
       ],
     },
@@ -119,8 +119,8 @@ const messages: Record<Language, Messages> = {
       title: "تواصلكم معنا",
       email: "البريد الإلكتروني",
       showroom: "المعرض",
-      pricing: "الأسعار",
-      pricingBody: "جميع الأسعار في هذا الموقع معروضة بالدرهم المغربي. اطلبوا منا عرضاً شاملاً يتضمن التوصيل والتركيب في جميع أنحاء المغرب.",
+      pricing: "مشروعكم",
+      pricingBody: "اطلبوا منا عرضاً شاملاً يتضمن التوصيل والتركيب في جميع أنحاء المغرب.",
     },
     errors: {
       notFound: "الصفحة غير موجودة",
@@ -137,7 +137,7 @@ const messages: Record<Language, Messages> = {
     footer: {
       where: "Where to find us",
       contact: "Get in touch",
-      prices: "All prices are shown in Moroccan dirham (MAD) and euro (EUR).",
+      prices: "",
     },
     home: {
       hero: "Timeless craftsmanship. Proven design. Make a lasting statement with Luxora",
@@ -151,7 +151,7 @@ const messages: Record<Language, Messages> = {
     products: {
       catalogue: "Catalogue",
       title: "Everything for your bathroom",
-      intro: "All prices are shown in Moroccan dirham, converted from our suppliers' yuan pricing. Contact us for volume pricing, lead times and installation.",
+      intro: "Contact us for a quote, lead times and installation.",
       all: "All",
       enquire: "Request a quote",
       enquirySubject: "Enquiry",
@@ -161,7 +161,7 @@ const messages: Record<Language, Messages> = {
       title: "We stand for design that lasts. For your home. For you.",
       paragraphs: [
         "At LUXORA, we believe every detail matters. We offer a curated selection of bathtubs, faucets, showers, fixtures and accessories that combine timeless design with lasting quality.",
-        "We work directly with our manufacturing partners to protect quality and offer fair prices. Supplier quotes are issued in Chinese yuan; every price on this site is converted and shown in Moroccan dirham.",
+        "We work directly with our manufacturing partners to protect quality and select lasting products.",
         "Visit our showroom in Marrakech Gueliz to see the materials in person: stone, brushed brass, matte black steel and fine ceramic.",
       ],
     },
@@ -170,8 +170,8 @@ const messages: Record<Language, Messages> = {
       title: "Touch",
       email: "Email",
       showroom: "Showroom",
-      pricing: "Pricing",
-      pricingBody: "All prices on this site are shown in Moroccan dirham. Ask us for a full quote including delivery and installation anywhere in Morocco.",
+      pricing: "Your project",
+      pricingBody: "Ask us for a full quote including delivery and installation anywhere in Morocco.",
     },
     errors: {
       notFound: "Page not found",
