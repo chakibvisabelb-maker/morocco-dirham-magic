@@ -6,3 +6,4 @@
 - [x] Change only Low Budget Taps page 2 from source ×4 to ×5 in the image, PDF and searchable text; verify all other prices remain unchanged.- [x] Low Budget: Toilets page 4 ×3; Showers pages 5–8 ×3 (instead of ×4)
 - [x] French text inside catalogue pages (machine-assisted; text baked into photos stays English)
 - [x] Make the catalogue PDF save to the computer: build it before the click, then hand it to a save dialog (top-level) or a plain download (preview frame); verify on Low Budget Toilets and the 37-page basins catalogue.
+- [x] Faucets & Showers: remove the 38 tap pages (now in the Robinets tab) so no page appears in both tabs; verify both tabs and the download.
