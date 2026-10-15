@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
-import { buildCataloguePdf, saveToComputer } from '@/lib/catalogue-pdf';
+import { buildCataloguePdf } from '@/lib/catalogue-pdf';
 import { CataloguePageImage } from '@/components/catalogue-page-image';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
 import { allCategories, categories, topLevelCategories, lowBudgetCategories, lowBudgetGroup, LOW_BUDGET, type Category } from '@/lib/products';
@@ -78,13 +78,6 @@ function ProductsPage() {
       setPdf({ blob, url });
       setPdfState('ready');
     }).catch(() => setPdfState('error'));
-  }
-  async function savePdf() {
-    if (!pdf) return;
-    const outcome = await saveToComputer(pdf.blob, filename);
-    if (outcome === 'saved') setSavedNote(c.saved);
-    else if (outcome === 'downloaded') setSavedNote(c.downloaded);
-    else if (outcome === 'shared') setSavedNote(c.shared);
   }
   const pdfLabel = pdfState === 'busy' ? c.creating : pdf ? c.download : c.prepare;
   const pager = <div className="flex items-center justify-center gap-2" dir="ltr"><Button size="icon" variant="outline" disabled={position === 0} aria-label={c.previous} onClick={() => setPage(position - 1)}><ChevronLeft /></Button><Button size="icon" variant="outline" disabled={position >= matching.length - 1} aria-label={c.next} onClick={() => setPage(position + 1)}><ChevronRight /></Button></div>;
