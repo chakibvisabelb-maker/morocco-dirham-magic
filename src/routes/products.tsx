@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef, useState } from 'react';
 import { buildCataloguePdf, saveToComputer } from '@/lib/catalogue-pdf';
+import { CataloguePageImage } from '@/components/catalogue-page-image';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
 import { allCategories, categories, topLevelCategories, lowBudgetCategories, lowBudgetGroup, LOW_BUDGET, type Category } from '@/lib/products';
 const segments = { fr: { high: 'Segment haut et milieu de gamme', low: 'Segment petit budget' }, en: { high: 'High-Mid Segment', low: 'Low Budget Segment' }, ar: { high: 'الفئة الراقية والمتوسطة', low: 'الفئة الاقتصادية' } };
@@ -46,7 +47,7 @@ function ProductsPage() {
   const pdfKey = active ? `${active.slug}|${language}|${query.trim().toLowerCase()}|${matching.length}` : '';
   const filename = `luxora-${active?.slug ?? 'catalogue'}-${language}${query.trim() ? '-search' : ''}.pdf`;
   function buildPdf() {
-    return buildCataloguePdf(matching.map(({ item }) => (language === 'fr' && item.frUrl) || item.url));
+    return buildCataloguePdf(matching.map(({ item, index }) => ({ url: (language === 'fr' && item.frUrl) || item.url, number: index + 1 })));
   }
   // The save dialog needs the click itself, so the PDF is built in advance and
   // the button only hands over a finished file.
@@ -108,12 +109,12 @@ function ProductsPage() {
       {active.slug === 'locks' ? <p className="mt-4 text-sm text-muted-foreground">{c.unpriced}</p> : <label className="mt-6 flex max-w-sm items-center gap-3 rounded-md border border-border px-3"><Search className="size-4 shrink-0 text-muted-foreground" /><input className="h-11 min-w-0 w-full bg-transparent text-sm outline-none" aria-label={c.search} placeholder={c.search} value={query} onChange={event => { setQuery(event.target.value); setPage(0); }} /></label>}
       {matching.length ? <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">{matching.map(({ item, index }) => <article key={item.url} className="flex flex-col">
         <button className="group block w-full cursor-pointer overflow-hidden border border-border bg-muted" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }} aria-label={`${c.enlarge} — ${c.page} ${index + 1}`}>
-          <img src={(language === 'fr' && item.frUrl) || item.url} alt={`${active.name[language]} — ${c.page} ${index + 1}`} width={item.width} height={item.height} loading="lazy" className="aspect-[4/3] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
+          <CataloguePageImage src={(language === 'fr' && item.frUrl) || item.url} number={index + 1} alt={`${active.name[language]} — ${c.page} ${index + 1}`} width={item.width} height={item.height} className="aspect-[4/3] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
         </button>
         <div className="mt-4 flex items-baseline justify-between gap-3"><h3 className="text-base font-medium">{active.name[language]} · {c.page} {index + 1}</h3><span className="whitespace-nowrap text-xs text-muted-foreground">{item.convertedPrices > 0 ? 'MAD / EUR' : c.onRequest}</span></div>
         <div className="mt-3 flex items-center justify-between gap-3"><Button variant="ghost" size="sm" className="px-0" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }}><Maximize2 />{c.enlarge}</Button><a className="eyebrow link-underline" href={`mailto:info@luxora.ma?subject=${encodeURIComponent(`${t.products.enquirySubject} — ${active.name[language]} — ${c.page} ${index + 1}`)}`}>{t.products.enquire}</a></div>
       </article>)}</div> : <p className="py-16 text-muted-foreground">{c.noResults}</p>}
-      {current && <Dialog open={enlarged} onOpenChange={setEnlarged}><DialogContent className="max-h-[95dvh] max-w-[95vw] overflow-auto p-4"><DialogTitle>{active.name[language]} — {c.page} {current.index + 1}</DialogTitle><DialogDescription>{c.note}</DialogDescription>{pager}<img src={(language === 'fr' && current.item.frUrl) || current.item.url} alt={`${active.name[language]} — ${c.page} ${current.index + 1}`} width={current.item.width} height={current.item.height} className="h-auto w-full" />{pager}</DialogContent></Dialog>}
+      {current && <Dialog open={enlarged} onOpenChange={setEnlarged}><DialogContent className="max-h-[95dvh] max-w-[95vw] overflow-auto p-4"><DialogTitle>{active.name[language]} — {c.page} {current.index + 1}</DialogTitle><DialogDescription>{c.note}</DialogDescription>{pager}<CataloguePageImage src={(language === 'fr' && current.item.frUrl) || current.item.url} number={current.index + 1} alt={`${active.name[language]} — ${c.page} ${current.index + 1}`} width={current.item.width} height={current.item.height} className="h-auto w-full" />{pager}</DialogContent></Dialog>}
       <div className="mt-10"><Button variant="outline" onClick={() => select(inGroup ? topLevelCategories.find(item => item.slug === LOW_BUDGET) : undefined)}>{inGroup ? '← ' + lowBudgetGroup.tagline[language] : c.back}</Button></div>
     </section>}
     <p className="mt-12 text-xs leading-relaxed text-muted-foreground">{c.note}{inGroup && <> {c.lbNote}</>}</p>

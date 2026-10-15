@@ -66,6 +66,9 @@
   --sand: oklch(0.91 0.021 75);
   --menu-surface: oklch(1 0 0);
   --menu-foreground: oklch(0.36 0.018 275);
+  --catalogue-number-ink: oklch(1 0 0);
+  --catalogue-page-paper: oklch(1 0 0);
+  --catalogue-page-ink: oklch(0.35 0 0);
 }
 
 .site-menu {
