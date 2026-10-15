@@ -14,7 +14,7 @@ export function SiteHeader() {
   return (
     <header className="site-menu sticky top-0 z-50 bg-menu-surface text-menu-foreground">
       <div className="mx-auto flex min-h-16 max-w-[1440px] items-center justify-between gap-3 px-4 py-4 md:min-h-20 md:px-16">
-        <nav aria-label={language === "fr" ? "Navigation principale" : language === "ar" ? "القائمة الرئيسية" : "Main navigation"} className="flex flex-1 items-center justify-between gap-6 pe-3 text-sm font-normal tracking-normal uppercase md:pe-20">
+        <nav aria-label={language === "fr" ? "Navigation principale" : language === "ar" ? "القائمة الرئيسية" : "Main navigation"} className="flex flex-1 items-center justify-between gap-3 pe-2 text-xs font-normal tracking-normal uppercase md:gap-6 md:pe-20 md:text-sm">
 
           {nav.map((item) => (
             <Link
