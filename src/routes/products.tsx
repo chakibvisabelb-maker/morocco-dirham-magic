@@ -85,8 +85,8 @@ function ProductsPage() {
     <div className="flex flex-wrap gap-2 border-b border-border pb-5">
 
 
-      <Button variant={!inGroup ? 'secondary' : 'ghost'} onClick={() => select()}>{segments[language].high}</Button>
       <Button variant={inGroup ? 'secondary' : 'ghost'} onClick={() => select(lowBudgetGroup)}>{segments[language].low}</Button>
+      <Button variant={!inGroup ? 'secondary' : 'ghost'} onClick={() => select()}>{segments[language].high}</Button>
     </div>
     <div className="mt-4 flex flex-wrap gap-2">
       <Button size="sm" variant={(inGroup ? category === LOW_BUDGET : showAll) ? 'secondary' : 'outline'} onClick={() => select(inGroup ? lowBudgetGroup : undefined)}>{t.products.all}</Button>
