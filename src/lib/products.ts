@@ -4,6 +4,7 @@ import faucets from '@/assets/catalogues/faucets.json';
 import fixtures from '@/assets/catalogues/fixtures.json';
 import locks from '@/assets/catalogues/locks.json';
 import lowbudget from '@/assets/catalogues/lowbudget.json';
+import kitchenImage from '@/assets/kitchens-placeholder.jpg';
 
 export type Localized = { fr: string; en: string; ar: string };
 export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string };
@@ -17,6 +18,7 @@ export const categories: Category[] = [
   { ...faucets, slug: 'taps', pages: [...faucets.pages.slice(17, 55), ...fixtures.pages.slice(62, 67), ...bathtubs.pages.slice(65, 73)], name: { fr: 'Robinets', en: 'Taps', ar: 'الصنابير' }, tagline: { fr: 'Robinets', en: 'Taps', ar: 'الصنابير' }, description: { fr: 'Les robinets muraux, de lavabo et de cuisine du catalogue.', en: 'The wall-in, basin and kitchen taps from the catalogue.', ar: 'صنابير الحائط والمغاسل والمطبخ من الكتالوج.' }, image: faucets.pages[17]!.url },
   { ...fixtures, pages: [...fixtures.pages.slice(0, 2), ...fixtures.pages.slice(3, 23), fixtures.pages[83]!], name: { fr: 'Meubles', en: 'Cabinets', ar: 'الخزائن' }, tagline: { fr: 'Meubles', en: 'Cabinets', ar: 'الخزائن' }, description: { fr: 'Meubles et miroirs du catalogue, dans leur présentation originale. Les vasques, baignoires et robinets ont leurs propres onglets.', en: 'Cabinets and mirrors from the catalogue, in their original presentation. Basins, bathtubs and taps have their own tabs.', ar: 'الخزائن والمرايا من الكتالوج بتصميمها الأصلي. المغاسل وأحواض الاستحمام والصنابير لها تبويباتها الخاصة.' }, image: fixtures.pages[0]!.url },
   { ...locks, name: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, tagline: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, description: { fr: 'Tous les modèles de serrures intelligentes.', en: 'Every smart lock model.', ar: 'جميع موديلات الأقفال الذكية.' }, image: locks.pages[0]!.url },
+  { slug: 'kitchens', pages: [], pdf: '', name: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, tagline: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, description: { fr: 'Nos cuisines équipées arrivent bientôt.', en: 'Our fitted kitchens are coming soon.', ar: 'مطابخنا المجهزة قريباً.' }, image: kitchenImage },
 ];
 
 export const LOW_BUDGET = 'low-budget';
