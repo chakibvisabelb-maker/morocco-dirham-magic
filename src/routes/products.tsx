@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { buildCataloguePdf, saveToComputer } from '@/lib/catalogue-pdf';
 import { CataloguePageImage } from '@/components/catalogue-page-image';
 import { ChevronLeft, ChevronRight, Download, Maximize2, Search } from 'lucide-react';
@@ -102,14 +102,15 @@ function ProductsPage() {
     </article>;})}</div> : <section className="mt-10">
       <div className="flex flex-wrap items-center justify-between gap-4"><h2 className="text-2xl font-medium">{active.name[language]}</h2>{active.pages.length > 0 && <div className="flex flex-col items-end gap-1">{pdf && pdfState === 'ready' ? <Button variant="outline" onClick={() => { if (!pdf) return; setSavedNote(undefined); void saveToComputer(pdf.blob, filename).then(outcome => setSavedNote(outcome === 'saved' ? c.saved : outcome === 'downloaded' ? c.downloaded : outcome === 'shared' ? c.shared : undefined)); }}><Download />{pdfLabel} · {matching.length} {c.pages}</Button> : <Button variant="outline" disabled={pdfState === 'busy' || !matching.length} onClick={() => preparePdf()}><Download />{pdfLabel} · {matching.length} {c.pages}</Button>}{pdfState === 'error' && <span role="alert" className="text-xs text-destructive">{c.failed}</span>}{savedNote && pdfState === 'ready' && <span className="text-xs text-muted-foreground">{savedNote}</span>}</div>}</div>
       {active.pages.length > 0 && <label className="mt-6 flex max-w-sm items-center gap-3 rounded-md border border-border px-3"><Search className="size-4 shrink-0 text-muted-foreground" /><input className="h-11 min-w-0 w-full bg-transparent text-sm outline-none" aria-label={c.search} placeholder={c.search} value={query} onChange={event => { setQuery(event.target.value); setPage(0); }} /></label>}
-      {matching.length ? <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">{matching.map(({ item, index }, k) => <article key={item.url} className={`flex flex-col${item.section && item.section.en !== matching[k - 1]?.item.section?.en ? ' sm:col-start-1' : ''}`}>
-        {item.section && item.section.en !== matching[k - 1]?.item.section?.en && <h3 className="eyebrow -mt-2 mb-3 text-muted-foreground">{item.section[language]}</h3>}
+      {matching.length ? <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">{matching.map(({ item, index }, k) => <Fragment key={item.url}>
+        {item.section && item.section.en !== matching[k - 1]?.item.section?.en && <h3 className="col-span-full border-b border-border pb-3 pt-6 text-xl font-medium first:pt-0">{item.section[language]}</h3>}
+        <article className="flex flex-col">
         <button className="group block w-full cursor-pointer overflow-hidden border border-border bg-muted" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }} aria-label={`${c.enlarge} — ${c.page} ${index + 1}`}>
           <CataloguePageImage src={(language === 'fr' && item.frUrl) || item.url} number={index + 1} alt={`${active.name[language]} — ${c.page} ${index + 1}`} width={item.width} height={item.height} className="aspect-[4/3] w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]" />
         </button>
         <div className="mt-4 flex items-baseline justify-between gap-3"><h3 className="text-base font-medium">{active.name[language]} · {c.page} {index + 1}</h3></div>
         <div className="mt-3 flex items-center justify-between gap-3"><Button variant="ghost" size="sm" className="px-0" onClick={() => { setPage(matching.findIndex(m => m.index === index)); setEnlarged(true); }}><Maximize2 />{c.enlarge}</Button><a className="eyebrow link-underline" href={`mailto:info@luxora.ma?subject=${encodeURIComponent(`${t.products.enquirySubject} — ${active.name[language]} — ${c.page} ${index + 1}`)}`}>{t.products.enquire}</a></div>
-      </article>)}</div> : <p className="py-16 text-muted-foreground">{active.pages.length ? c.noResults : c.soon}</p>}
+      </article></Fragment>)}</div> : <p className="py-16 text-muted-foreground">{active.pages.length ? c.noResults : c.soon}</p>}
       {current && <Dialog open={enlarged} onOpenChange={setEnlarged}><DialogContent className="max-h-[95dvh] max-w-[95vw] overflow-auto p-4"><DialogTitle>{active.name[language]} — {c.page} {current.index + 1}</DialogTitle><DialogDescription className="sr-only">{active.name[language]} — {c.page} {current.index + 1}</DialogDescription>{pager}<CataloguePageImage src={(language === 'fr' && current.item.frUrl) || current.item.url} number={current.index + 1} alt={`${active.name[language]} — ${c.page} ${current.index + 1}`} width={current.item.width} height={current.item.height} className="h-auto w-full" />{pager}</DialogContent></Dialog>}
       <div className="mt-10"><Button variant="outline" onClick={() => select(inGroup ? topLevelCategories.find(item => item.slug === LOW_BUDGET) : undefined)}>{inGroup ? '← ' + lowBudgetGroup.tagline[language] : c.back}</Button></div>
     </section>}
