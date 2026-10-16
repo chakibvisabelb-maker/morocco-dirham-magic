@@ -12,3 +12,5 @@
 - [x] Renumber printed catalogue pages in every category to match the current tab order, including enlargement and generated PDFs; verified all 12 categories, French/English/Arabic, and full/search PDF downloads.
 - [x] Remove all prices from every section, tab, catalogue image and PDF; preserve product details and verify both segments.
 - [x] Move the Kitchens tab from High-Mid Segment to Low Budget Segment; verified tab rows, 7 pages, enlarged view and PDF in French/English/Arabic.
+
+- [x] High-Mid Kitchens tab from ELLECASA catalogue: sections, Chinese translated, brand removed, Price ×1.7 + MAD/EUR from ×3, last page removed

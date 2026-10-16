@@ -6,9 +6,10 @@ import locks from '@/assets/catalogues/locks.json';
 import lowbudget from '@/assets/catalogues/lowbudget.json';
 import kitchens from '@/assets/catalogues/kitchens.json';
 import enclosures from '@/assets/catalogues/enclosures.json';
+import hmKitchens from '@/assets/catalogues/hm-kitchens.json';
 
 export type Localized = { fr: string; en: string; ar: string };
-export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string };
+export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; section?: Localized };
 export type Category = { slug: string; name: Localized; tagline: Localized; description: Localized; image: string; pages: CataloguePage[]; pdf: string; pdfFr?: string; group?: string };
 
 export const categories: Category[] = [
@@ -19,6 +20,7 @@ export const categories: Category[] = [
   { ...faucets, slug: 'taps', pages: [...faucets.pages.slice(17, 55), ...fixtures.pages.slice(62, 67), ...bathtubs.pages.slice(65, 73)], name: { fr: 'Robinets', en: 'Taps', ar: 'الصنابير' }, tagline: { fr: 'Robinets', en: 'Taps', ar: 'الصنابير' }, description: { fr: 'Les robinets muraux, de lavabo et de cuisine du catalogue.', en: 'The wall-in, basin and kitchen taps from the catalogue.', ar: 'صنابير الحائط والمغاسل والمطبخ من الكتالوج.' }, image: faucets.pages[17]!.url },
   { ...fixtures, pages: [...fixtures.pages.slice(0, 2), ...fixtures.pages.slice(3, 23), fixtures.pages[83]!], name: { fr: 'Meubles', en: 'Cabinets', ar: 'الخزائن' }, tagline: { fr: 'Meubles', en: 'Cabinets', ar: 'الخزائن' }, description: { fr: 'Meubles et miroirs du catalogue, dans leur présentation originale. Les vasques, baignoires et robinets ont leurs propres onglets.', en: 'Cabinets and mirrors from the catalogue, in their original presentation. Basins, bathtubs and taps have their own tabs.', ar: 'الخزائن والمرايا من الكتالوج بتصميمها الأصلي. المغاسل وأحواض الاستحمام والصنابير لها تبويباتها الخاصة.' }, image: fixtures.pages[0]!.url },
   { ...locks, name: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, tagline: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, description: { fr: 'Tous les modèles de serrures intelligentes.', en: 'Every smart lock model.', ar: 'جميع موديلات الأقفال الذكية.' }, image: locks.pages[0]!.url },
+  { ...hmKitchens, name: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, tagline: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, description: { fr: 'Aménagements et quincaillerie de cuisine et dressing, classés par section, avec prix en MAD et EUR.', en: 'Kitchen and wardrobe fittings and hardware, organised by section, with prices in MAD and EUR.', ar: 'تجهيزات وإكسسوارات المطبخ وخزائن الملابس مرتبة حسب القسم، مع الأسعار بالدرهم واليورو.' }, image: hmKitchens.pages[0]!.url },
 ];
 
 export const LOW_BUDGET = 'low-budget';
