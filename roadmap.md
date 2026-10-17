@@ -14,3 +14,4 @@
 - [x] Move the Kitchens tab from High-Mid Segment to Low Budget Segment; verified tab rows, 7 pages, enlarged view and PDF in French/English/Arabic.
 
 - [x] High-Mid Kitchens tab from ELLECASA catalogue: sections, Chinese translated, brand removed, Price ×1.7 + MAD/EUR from ×3, last page removed
+- [x] Products opens with the Low Budget Segment highlighted and its catalogues shown; High-Mid only when clicked.
