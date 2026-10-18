@@ -1,56 +1,56 @@
 {
- "slug": "lb-enclosures",
- "pages": [
-  {
-   "url": "/__l5e/assets-v1/34d3f8ce-fe74-429f-9260-89ba943338b1/enclosure-np-00.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "E001",
-   "convertedPrices": 0
-  },
-  {
-   "url": "/__l5e/assets-v1/393ebd95-575d-4319-b937-b1ebb0a4c1c6/enclosure-np-01.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "Aluminum Alloy 8mm Tempered Glass Polished Frame Sliding Shower Doors ABS Tray Straight Design Modern Bathroom Enclosure\n6mm,900*900*1850mm",
-   "convertedPrices": 0
-  },
-  {
-   "url": "/__l5e/assets-v1/9830cb11-87fd-4b71-ae1b-2c278609bc74/enclosure-np-02.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "E002",
-   "convertedPrices": 0
-  },
-  {
-   "url": "/__l5e/assets-v1/12e9eb47-6c1b-44ef-bb52-f3e711f624c6/enclosure-np-03.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "",
-   "convertedPrices": 0
-  },
-  {
-   "url": "/__l5e/assets-v1/4defbf67-3b8a-454f-88e3-748a0f457831/enclosure-np-04.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "E003\n1set",
-   "convertedPrices": 0
-  },
-  {
-   "url": "/__l5e/assets-v1/0a581542-83c4-4e0d-af75-729d8e98601b/enclosure-np-05.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "E004",
-   "convertedPrices": 0
-  },
-  {
-   "url": "/__l5e/assets-v1/2175b03f-7423-48fd-9cd5-fa5c014bd02a/enclosure-np-06.jpg",
-   "width": 1871,
-   "height": 1323,
-   "text": "800mm*800mm*1850mm, 5mm,1set",
-   "convertedPrices": 0
-  }
- ],
- "pdf": "/__l5e/assets-v1/cb69b5e8-4a62-4edc-8487-5e6fb7fef2ad/shower-enclosures.pdf",
- "convertedPrices": 4
+  "slug": "lb-enclosures",
+  "pages": [
+    {
+      "url": "/__l5e/assets-v1/a5783f73-4540-492d-9c1a-e6d5a7760a0c/enclosure-measurements-00.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "E001",
+      "convertedPrices": 0
+    },
+    {
+      "url": "/__l5e/assets-v1/3e7e62fa-824d-47b2-a26d-b59a8731d5e9/enclosure-measurements-01.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "Aluminum Alloy 8mm Tempered Glass Polished Frame Sliding Shower Doors ABS Tray Straight Design Modern Bathroom Enclosure\nSize L 800/900mm W 800/900mm H 1850mm\nTempered glass 4mm/5mm/6mm/8mm optional\n6mm,900*900*1850mm",
+      "convertedPrices": 0
+    },
+    {
+      "url": "/__l5e/assets-v1/e9fd10ea-f6b2-4422-8526-6f51fa85dfde/enclosure-measurements-02.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "E002",
+      "convertedPrices": 0
+    },
+    {
+      "url": "/__l5e/assets-v1/e0d355e8-1541-4423-aab9-a5067190cf37/enclosure-measurements-03.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "Open Style Hinge\nDesign Style Modern\nAppearance Style Straight\nTray Material ABS",
+      "convertedPrices": 0
+    },
+    {
+      "url": "/__l5e/assets-v1/351a3eec-99f3-403f-86ea-3e69c22d0eb3/enclosure-measurements-04.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "E003\nStandard size 900+900mm custom\nStandard height 1850mm custom\n1set",
+      "convertedPrices": 0
+    },
+    {
+      "url": "/__l5e/assets-v1/e857f1f6-eae9-4410-a28a-b66e799ca187/enclosure-measurements-05.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "E004\nSize 800X1000x2000mm\n900X120x2000mm\n1000X1400x2000mm\nCustom-made is available\nGlass 6/8mm tempered glass",
+      "convertedPrices": 0
+    },
+    {
+      "url": "/__l5e/assets-v1/1d97b5f9-e392-424a-a941-e1453222ed4d/enclosure-measurements-06.jpg",
+      "width": 1871,
+      "height": 1323,
+      "text": "800mm*800mm*1850mm, 5mm,1set",
+      "convertedPrices": 0
+    }
+  ],
+  "pdf": "/__l5e/assets-v1/f721041b-4c11-426a-a0bd-85c07a17c61c/shower-enclosures-measurements.pdf",
+  "convertedPrices": 0
 }
