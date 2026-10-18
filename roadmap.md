@@ -15,4 +15,4 @@
 
 - [x] High-Mid Kitchens tab from ELLECASA catalogue: sections, Chinese translated, brand removed, Price ×1.7 + MAD/EUR from ×3, last page removed
 - [x] Products opens with the Low Budget Segment highlighted and its catalogues shown; High-Mid only when clicked.
-- [ ] Restore Low Budget Shower enclosures measurements from source documents while keeping prices removed; verify images, search and PDF.
+- [x] Restore Low Budget Shower enclosures measurements from source documents while keeping prices removed; verified enlarged pages, measurement search and seven-page PDF download.
