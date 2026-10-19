@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-stone.jpg";
-import { topLevelCategories } from "@/lib/products";
+import { cataloguePageUrl, topLevelCategories } from "@/lib/products";
 import { useLanguage } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
@@ -70,7 +70,7 @@ function Index() {
             <Link key={cat.slug} to="/products" search={{ category: cat.slug }} className="group block">
               <div className="overflow-hidden bg-muted">
                 <img
-                  src={cat.image}
+                  src={cat.pages[0] ? cataloguePageUrl(cat.pages[0], language) : cat.image}
                   alt={cat.name[language]}
                   loading="lazy"
                   width={1200}

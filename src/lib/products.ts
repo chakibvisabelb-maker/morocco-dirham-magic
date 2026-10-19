@@ -8,10 +8,15 @@ import kitchens from '@/assets/catalogues/kitchens.json';
 import enclosures from '@/assets/catalogues/enclosures.json';
 import hmKitchens from '@/assets/catalogues/hm-kitchens.json';
 import showersAdvanced from '@/assets/catalogues/showers-advanced.json';
+import doors from '@/assets/catalogues/doors.json';
 
 export type Localized = { fr: string; en: string; ar: string };
-export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; section?: Localized };
+export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; arUrl?: string; arText?: string; section?: Localized };
 export type Category = { slug: string; name: Localized; tagline: Localized; description: Localized; image: string; pages: CataloguePage[]; pdf: string; pdfFr?: string; group?: string };
+
+export function cataloguePageUrl(page: CataloguePage, language: keyof Localized) {
+  return (language === 'ar' ? page.arUrl : language === 'fr' ? page.frUrl : undefined) || page.url;
+}
 
 export const categories: Category[] = [
   { ...bathtubs, pages: [...bathtubs.pages.slice(0, 1), ...bathtubs.pages.slice(21, 38), ...bathtubs.pages.slice(61, 63), ...bathtubs.pages.slice(38, 61), ...bathtubs.pages.slice(63, 65), ...bathtubs.pages.slice(73, 74), ...bathtubs.pages.slice(81, 87), ...fixtures.pages.slice(47, 62), ...bathtubs.pages.slice(1, 21), ...bathtubs.pages.slice(74, 81)], name: { fr: 'Baignoires et spas', en: 'Bathtubs & spas', ar: 'أحواض الاستحمام والسبا' }, tagline: { fr: 'Baignoires', en: 'Bathtubs', ar: 'أحواض الاستحمام' }, description: { fr: 'Toutes les baignoires, piscines et spas du catalogue original. Les mitigeurs de baignoire sont dans l’onglet Robinets.', en: 'Every bathtub, swimming pool and spa from the original catalogue. Bathtub mixers are in the Taps tab.', ar: 'جميع أحواض الاستحمام والمسابح والسبا من الكتالوج الأصلي. خلاطات الأحواض في تبويب الصنابير.' }, image: bathtubs.pages[0]!.url },
@@ -22,6 +27,7 @@ export const categories: Category[] = [
   { ...fixtures, pages: [...fixtures.pages.slice(0, 2), ...fixtures.pages.slice(3, 23), fixtures.pages[83]!], name: { fr: 'Meubles', en: 'Cabinets', ar: 'الخزائن' }, tagline: { fr: 'Meubles', en: 'Cabinets', ar: 'الخزائن' }, description: { fr: 'Meubles et miroirs du catalogue, dans leur présentation originale. Les vasques, baignoires et robinets ont leurs propres onglets.', en: 'Cabinets and mirrors from the catalogue, in their original presentation. Basins, bathtubs and taps have their own tabs.', ar: 'الخزائن والمرايا من الكتالوج بتصميمها الأصلي. المغاسل وأحواض الاستحمام والصنابير لها تبويباتها الخاصة.' }, image: fixtures.pages[0]!.url },
   { ...locks, name: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, tagline: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, description: { fr: 'Tous les modèles de serrures intelligentes.', en: 'Every smart lock model.', ar: 'جميع موديلات الأقفال الذكية.' }, image: locks.pages[0]!.url },
   { ...hmKitchens, name: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, tagline: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, description: { fr: 'Aménagements et quincaillerie de cuisine et dressing, classés par section.', en: 'Kitchen and wardrobe fittings and hardware, organised by section.', ar: 'تجهيزات وإكسسوارات المطبخ وخزائن الملابس مرتبة حسب القسم.' }, image: hmKitchens.pages[0]!.url },
+  { ...doors, name: { fr: 'Portes', en: 'Doors', ar: 'الأبواب' }, tagline: { fr: 'Portes', en: 'Doors', ar: 'الأبواب' }, description: { fr: 'Portes en aluminium, bambou et finitions bois, avec modèles, coloris et détails techniques.', en: 'Aluminium, bamboo and wood-finish doors, with models, colours and technical details.', ar: 'أبواب الألمنيوم والخيزران والتشطيبات الخشبية، مع الموديلات والألوان والتفاصيل الفنية.' }, image: doors.pages[5]?.url ?? '' },
 ];
 
 export const LOW_BUDGET = 'low-budget';
