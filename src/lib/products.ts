@@ -9,6 +9,7 @@ import enclosures from '@/assets/catalogues/enclosures.json';
 import hmKitchens from '@/assets/catalogues/hm-kitchens.json';
 import showersAdvanced from '@/assets/catalogues/showers-advanced.json';
 import doors from '@/assets/catalogues/doors.json';
+import doorHandles from '@/assets/catalogues/door-handles.json';
 
 export type Localized = { fr: string; en: string; ar: string };
 export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; arUrl?: string; arText?: string; section?: Localized };
@@ -28,6 +29,7 @@ export const categories: Category[] = [
   { ...locks, name: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, tagline: { fr: 'Serrures intelligentes', en: 'Smart locks', ar: 'الأقفال الذكية' }, description: { fr: 'Tous les modèles de serrures intelligentes.', en: 'Every smart lock model.', ar: 'جميع موديلات الأقفال الذكية.' }, image: locks.pages[0]!.url },
   { ...hmKitchens, name: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, tagline: { fr: 'Cuisines', en: 'Kitchens', ar: 'المطابخ' }, description: { fr: 'Aménagements et quincaillerie de cuisine et dressing, classés par section.', en: 'Kitchen and wardrobe fittings and hardware, organised by section.', ar: 'تجهيزات وإكسسوارات المطبخ وخزائن الملابس مرتبة حسب القسم.' }, image: hmKitchens.pages[0]!.url },
   { ...doors, name: { fr: 'Portes', en: 'Doors', ar: 'الأبواب' }, tagline: { fr: 'Portes', en: 'Doors', ar: 'الأبواب' }, description: { fr: 'Portes en aluminium, bambou et finitions bois, avec modèles, coloris et détails techniques.', en: 'Aluminium, bamboo and wood-finish doors, with models, colours and technical details.', ar: 'أبواب الألمنيوم والخيزران والتشطيبات الخشبية، مع الموديلات والألوان والتفاصيل الفنية.' }, image: doors.pages[5]?.url ?? '' },
+  { ...doorHandles, name: { fr: 'Poignées de porte', en: 'Door handles', ar: 'مقابض الأبواب' }, tagline: { fr: 'Poignées de porte', en: 'Door handles', ar: 'مقابض الأبواب' }, description: { fr: 'Poignées, serrures, charnières et accessoires de porte, avec références, finitions et dimensions.', en: 'Door handles, locks, hinges and accessories, with model references, finishes and dimensions.', ar: 'مقابض وأقفال ومفصلات وإكسسوارات الأبواب، مع مراجع الموديلات والتشطيبات والأبعاد.' }, image: doorHandles.pages[4]?.url ?? '' },
 ];
 
 export const LOW_BUDGET = 'low-budget';
