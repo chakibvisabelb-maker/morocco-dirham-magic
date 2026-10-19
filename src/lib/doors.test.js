@@ -3,7 +3,7 @@ import doors from '../assets/catalogues/doors.json';
 import { categories, lowBudgetCategories, cataloguePageUrl } from './products';
 
 test('Doors belongs only to High-Mid and includes both product catalogues', () => {
-  expect(categories.find(category => category.slug === 'doors')?.pages.length).toBe(72);
+  expect(categories.find(category => category.slug === 'doors')?.pages.length).toBe(71);
   expect(lowBudgetCategories.some(category => category.slug === 'doors')).toBe(false);
   expect(new Set(doors.pages.map(page => page.section.en)).size).toBe(2);
 });
@@ -32,4 +32,12 @@ test('Door product references and technical sizes are retained', () => {
   expect(text).toContain('YG-01');
   expect(text).toContain('YKD-2501');
   expect(text).toContain('60mm');
+});
+
+test('Original Doors page 28 is removed and original page 67 moves to position 66', () => {
+  expect(doors.pages.some(page => page.url.includes('1-03-en.jpg'))).toBe(false);
+  expect(doors.pages[65].text).toContain('How to measure door opening dimensions');
+  expect(doors.pages[65].url).toContain('1-42-fixed-en.jpg');
+  expect(doors.pages[65].frUrl).toContain('1-42-fixed-fr.jpg');
+  expect(doors.pages[65].arUrl).toContain('1-42-fixed-ar.jpg');
 });
