@@ -17,4 +17,4 @@
 - [x] Products opens with the Low Budget Segment highlighted and its catalogues shown; High-Mid only when clicked.
 - [x] Restore Low Budget Shower enclosures measurements from source documents while keeping prices removed; verified enlarged pages, measurement search and seven-page PDF download.
 - [x] Replace Low Budget Shower enclosures with all nine pages of Shower_Enclosures-2.pdf; preserve measurements, remove prices, update English/French images, search and numbered downloads; verified nine-page download, measurement search and enlarged view.
-- [ ] Add High-Mid Doors from both attached catalogues with French, English and Arabic pages; remove company details and verify browsing and downloads.
+- [x] Add High-Mid Doors from both attached catalogues with French, English and Arabic pages; remove company details and verify browsing, reference search, enlargement and translated PDF downloads. Corrected overlapping labels and faint logo remnants during visual PDF review.
