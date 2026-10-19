@@ -12,3 +12,4 @@
 - Apply category-order numbering through the shared browser image renderer for both catalogue display and generated PDFs; source-derived number regions mask old badges without changing product content, and search retains each page's category number.
 - Regenerate price-free catalogue images, PDF pointers and searchable text as one source-derived asset update; shared numbering continues to apply to display and downloads so all views stay consistent.
 - Select localized catalogue images through cataloguePageUrl for previews, enlargement and downloads, so Arabic, French and English always use the same language-specific source.
+- Register new catalogue tabs through localized source-derived manifests in the shared category list, so browsing, search and generated downloads stay synchronized without duplicate page logic.
