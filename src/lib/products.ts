@@ -10,8 +10,12 @@ import hmKitchens from '@/assets/catalogues/hm-kitchens.json';
 import showersAdvanced from '@/assets/catalogues/showers-advanced.json';
 
 export type Localized = { fr: string; en: string; ar: string };
-export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; section?: Localized };
+export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; arUrl?: string; arText?: string; section?: Localized };
 export type Category = { slug: string; name: Localized; tagline: Localized; description: Localized; image: string; pages: CataloguePage[]; pdf: string; pdfFr?: string; group?: string };
+
+export function cataloguePageUrl(page: CataloguePage, language: keyof Localized) {
+  return (language === 'ar' ? page.arUrl : language === 'fr' ? page.frUrl : undefined) || page.url;
+}
 
 export const categories: Category[] = [
   { ...bathtubs, pages: [...bathtubs.pages.slice(0, 1), ...bathtubs.pages.slice(21, 38), ...bathtubs.pages.slice(61, 63), ...bathtubs.pages.slice(38, 61), ...bathtubs.pages.slice(63, 65), ...bathtubs.pages.slice(73, 74), ...bathtubs.pages.slice(81, 87), ...fixtures.pages.slice(47, 62), ...bathtubs.pages.slice(1, 21), ...bathtubs.pages.slice(74, 81)], name: { fr: 'Baignoires et spas', en: 'Bathtubs & spas', ar: 'أحواض الاستحمام والسبا' }, tagline: { fr: 'Baignoires', en: 'Bathtubs', ar: 'أحواض الاستحمام' }, description: { fr: 'Toutes les baignoires, piscines et spas du catalogue original. Les mitigeurs de baignoire sont dans l’onglet Robinets.', en: 'Every bathtub, swimming pool and spa from the original catalogue. Bathtub mixers are in the Taps tab.', ar: 'جميع أحواض الاستحمام والمسابح والسبا من الكتالوج الأصلي. خلاطات الأحواض في تبويب الصنابير.' }, image: bathtubs.pages[0]!.url },
