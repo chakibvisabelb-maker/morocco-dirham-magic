@@ -44,6 +44,25 @@ import en15 from './lb-doors-clean/door-15-en.jpg.asset.json';
 import fr15 from './lb-doors-clean/door-15-fr.jpg.asset.json';
 import ar15 from './lb-doors-clean/door-15-ar.jpg.asset.json';
 
+import en16 from './lb-doors-ng/door-16-en.jpg.asset.json';
+import fr16 from './lb-doors-ng/door-16-fr.jpg.asset.json';
+import ar16 from './lb-doors-ng/door-16-ar.jpg.asset.json';
+import en17 from './lb-doors-ng/door-17-en.jpg.asset.json';
+import fr17 from './lb-doors-ng/door-17-fr.jpg.asset.json';
+import ar17 from './lb-doors-ng/door-17-ar.jpg.asset.json';
+import en18 from './lb-doors-ng/door-18-en.jpg.asset.json';
+import fr18 from './lb-doors-ng/door-18-fr.jpg.asset.json';
+import ar18 from './lb-doors-ng/door-18-ar.jpg.asset.json';
+import en19 from './lb-doors-ng/door-19-en.jpg.asset.json';
+import fr19 from './lb-doors-ng/door-19-fr.jpg.asset.json';
+import ar19 from './lb-doors-ng/door-19-ar.jpg.asset.json';
+import en20 from './lb-doors-ng/door-20-en.jpg.asset.json';
+import fr20 from './lb-doors-ng/door-20-fr.jpg.asset.json';
+import ar20 from './lb-doors-ng/door-20-ar.jpg.asset.json';
+import en21 from './lb-doors-ng/door-21-en.jpg.asset.json';
+import fr21 from './lb-doors-ng/door-21-fr.jpg.asset.json';
+import ar21 from './lb-doors-ng/door-21-ar.jpg.asset.json';
+
 export default {
   slug: 'lb-doors',
   pdf: '',
@@ -169,6 +188,54 @@ export default {
       text: "RZX-9012",
       frText: "RZX-9012",
       arText: "RZX-9012",
+    },
+    {
+      url: en16.url, frUrl: fr16.url, arUrl: ar16.url,
+      width: 1871, height: 1323, convertedPrices: 0,
+      section: {"en": "Wooden doors — measured designs", "fr": "Portes en bois — modèles cotés", "ar": "أبواب خشبية — تصاميم بأبعاد"},
+      text: "YS-8208\nTBA\n2040 × 950 mm\n204 H X 95 W\nExterior view\nInterior view\nFrame section\nArchitrave section\nAll drawing dimensions in mm\n2040 950 1000 58 10 160 4 50",
+      frText: "YS-8208\nTBA\n2040 × 950 mm\n204 H X 95 W\nVue extérieure\nVue intérieure\nCoupe du cadre\nCoupe du chambranle\nToutes les cotes en mm\n2040 950 1000 58 10 160 4 50",
+      arText: "YS-8208\nTBA\n2040 × 950 mm\n204 H X 95 W\nمنظر خارجي\nمنظر داخلي\nمقطع الإطار\nمقطع الحلية\nجميع أبعاد الرسم بالملليمتر\n2040 950 1000 58 10 160 4 50",
+    },
+    {
+      url: en17.url, frUrl: fr17.url, arUrl: ar17.url,
+      width: 1871, height: 1323, convertedPrices: 0,
+      section: {"en": "Wooden doors — measured designs", "fr": "Portes en bois — modèles cotés", "ar": "أبواب خشبية — تصاميم بأبعاد"},
+      text: "ZP704-Y1\nTBA\n2040 × 950 mm\n204 H X 95 W\nExterior view\nInterior view\nFrame section\nArchitrave section\nAll drawing dimensions in mm\n2040 950 1000 58 10 160 4 50",
+      frText: "ZP704-Y1\nTBA\n2040 × 950 mm\n204 H X 95 W\nVue extérieure\nVue intérieure\nCoupe du cadre\nCoupe du chambranle\nToutes les cotes en mm\n2040 950 1000 58 10 160 4 50",
+      arText: "ZP704-Y1\nTBA\n2040 × 950 mm\n204 H X 95 W\nمنظر خارجي\nمنظر داخلي\nمقطع الإطار\nمقطع الحلية\nجميع أبعاد الرسم بالملليمتر\n2040 950 1000 58 10 160 4 50",
+    },
+    {
+      url: en18.url, frUrl: fr18.url, arUrl: ar18.url,
+      width: 1871, height: 1323, convertedPrices: 0,
+      section: {"en": "Wooden doors — measured designs", "fr": "Portes en bois — modèles cotés", "ar": "أبواب خشبية — تصاميم بأبعاد"},
+      text: "ZP701-Y1\n1110\n2040 × 850 mm\n204 H X 85 W\nExterior view\nInterior view\nFrame section\nArchitrave section\nAll drawing dimensions in mm\n2040 850 1000 58 10 160 4 43",
+      frText: "ZP701-Y1\n1110\n2040 × 850 mm\n204 H X 85 W\nVue extérieure\nVue intérieure\nCoupe du cadre\nCoupe du chambranle\nToutes les cotes en mm\n2040 850 1000 58 10 160 4 43",
+      arText: "ZP701-Y1\n1110\n2040 × 850 mm\n204 H X 85 W\nمنظر خارجي\nمنظر داخلي\nمقطع الإطار\nمقطع الحلية\nجميع أبعاد الرسم بالملليمتر\n2040 850 1000 58 10 160 4 43",
+    },
+    {
+      url: en19.url, frUrl: fr19.url, arUrl: ar19.url,
+      width: 1871, height: 1323, convertedPrices: 0,
+      section: {"en": "Wooden doors — measured designs", "fr": "Portes en bois — modèles cotés", "ar": "أبواب خشبية — تصاميم بأبعاد"},
+      text: "YS-8186\n1110\n2040 × 850 mm\n204 H X 85 W\nExterior view\nInterior view\nFrame section\nArchitrave section\nAll drawing dimensions in mm\n2040 850 1000 58 10 160 4 43",
+      frText: "YS-8186\n1110\n2040 × 850 mm\n204 H X 85 W\nVue extérieure\nVue intérieure\nCoupe du cadre\nCoupe du chambranle\nToutes les cotes en mm\n2040 850 1000 58 10 160 4 43",
+      arText: "YS-8186\n1110\n2040 × 850 mm\n204 H X 85 W\nمنظر خارجي\nمنظر داخلي\nمقطع الإطار\nمقطع الحلية\nجميع أبعاد الرسم بالملليمتر\n2040 850 1000 58 10 160 4 43",
+    },
+    {
+      url: en20.url, frUrl: fr20.url, arUrl: ar20.url,
+      width: 1871, height: 1323, convertedPrices: 0,
+      section: {"en": "Wooden doors — measured designs", "fr": "Portes en bois — modèles cotés", "ar": "أبواب خشبية — تصاميم بأبعاد"},
+      text: "YS-8153\n1108\n2040 × 750 mm\n204 H X 75 W\nExterior view\nInterior view\nFrame section\nArchitrave section\nAll drawing dimensions in mm\n2040 750 1000 58 10 160 4 43",
+      frText: "YS-8153\n1108\n2040 × 750 mm\n204 H X 75 W\nVue extérieure\nVue intérieure\nCoupe du cadre\nCoupe du chambranle\nToutes les cotes en mm\n2040 750 1000 58 10 160 4 43",
+      arText: "YS-8153\n1108\n2040 × 750 mm\n204 H X 75 W\nمنظر خارجي\nمنظر داخلي\nمقطع الإطار\nمقطع الحلية\nجميع أبعاد الرسم بالملليمتر\n2040 750 1000 58 10 160 4 43",
+    },
+    {
+      url: en21.url, frUrl: fr21.url, arUrl: ar21.url,
+      width: 1871, height: 1323, convertedPrices: 0,
+      section: {"en": "Wooden doors — measured designs", "fr": "Portes en bois — modèles cotés", "ar": "أبواب خشبية — تصاميم بأبعاد"},
+      text: "ZP608-Y3\n1108\n2040 × 750 mm\n204 H X 75 W\nExterior view\nInterior view\nFrame section\nArchitrave section\nAll drawing dimensions in mm\n2040 750 1000 58 10 160 4 43",
+      frText: "ZP608-Y3\n1108\n2040 × 750 mm\n204 H X 75 W\nVue extérieure\nVue intérieure\nCoupe du cadre\nCoupe du chambranle\nToutes les cotes en mm\n2040 750 1000 58 10 160 4 43",
+      arText: "ZP608-Y3\n1108\n2040 × 750 mm\n204 H X 75 W\nمنظر خارجي\nمنظر داخلي\nمقطع الإطار\nمقطع الحلية\nجميع أبعاد الرسم بالملليمتر\n2040 750 1000 58 10 160 4 43",
     },
   ],
 };
