@@ -23,3 +23,4 @@
 - [x] Replace Low Budget Taps content with the 10 pages of the attached water_tap_2.pdf; prices removed, model codes B001–B005 kept, verified tab, search and PDF download.
 - [x] Restore the sizes (60cm-100cm, 60CM, 60cm, 60cm-80cm) that the price erasure removed from Low Budget Cabinets pages 3, 5, 7 and 9; re-rendered from the source PDF with only the price text removed, French images patched the same way, search text updated; verified tab, size search, enlargement and tests.
 - [x] Add EXW_Price_Bathroom_Sample_2.pdf to the matching Low Budget product tabs, preserving specifications and removing every price from images, search and downloads. Added a Basins tab; verified English/French pages, dimension search, enlargement and PDF download.
+- [x] Split Low Budget Taps page 11 into separate 8 cm and 11 cm tap pages; verified English/French display, enlargement, size search and the 12-page PDF download.

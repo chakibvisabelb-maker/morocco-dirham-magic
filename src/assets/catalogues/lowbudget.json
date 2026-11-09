@@ -411,13 +411,22 @@
         "frText": ""
       },
       {
-        "url": "/__l5e/assets-v1/3270afb5-8f27-4191-86f3-5a5fa279961d/lb-taps-nov9-en.jpg",
-        "width": 1323,
-        "height": 1871,
-        "text": "Zinc Alloy\n8cm\nConnecting pipe included\nPlastic Faucet\n11cm\nConnecting pipe included",
+        "url": "/__l5e/assets-v1/6ad80a1a-7dd2-4028-9caa-cbb496f42941/lb-taps-8cm-en.jpg",
+        "width": 1234,
+        "height": 767,
+        "text": "Zinc Alloy\n8cm\nConnecting pipe included",
         "convertedPrices": 0,
-        "frUrl": "/__l5e/assets-v1/b4c4e9dd-9d64-4187-aca4-bd070fd3e065/lb-taps-nov9-fr.jpg",
-        "frText": "Alliage de zinc\n8cm\nFlexible de raccordement inclus\nRobinet en plastique\n11cm\nFlexible de raccordement inclus"
+        "frUrl": "/__l5e/assets-v1/7befd407-b538-4b34-af6f-5d45db2dae5f/lb-taps-8cm-fr.jpg",
+        "frText": "Alliage de zinc\n8cm\nFlexible de raccordement inclus"
+      },
+      {
+        "url": "/__l5e/assets-v1/4ce058c1-22c8-4c88-9706-3eabbc9e8fe3/lb-taps-11cm-en.jpg",
+        "width": 1234,
+        "height": 767,
+        "text": "Plastic Faucet\n11cm\nConnecting pipe included",
+        "convertedPrices": 0,
+        "frUrl": "/__l5e/assets-v1/01404081-1080-48a7-819e-47c0eda44c6e/lb-taps-11cm-fr.jpg",
+        "frText": "Robinet en plastique\n11cm\nFlexible de raccordement inclus"
       }
     ],
     "pdf": "",

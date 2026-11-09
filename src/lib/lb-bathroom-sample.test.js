@@ -12,13 +12,13 @@ const additions = {
 
 describe('Low Budget bathroom sample addition', () => {
   test('puts each source page in its associated product type', () => {
-    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(11);
+    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(12);
     expect(lowBudgetCategories.find(c => c.slug === 'lb-showers-advanced')?.pages).toHaveLength(11);
     expect(lowBudgetCategories.find(c => c.slug === 'lb-toilets')?.pages).toHaveLength(6);
     expect(lowBudgetCategories.find(c => c.slug === 'lb-basins')?.pages).toHaveLength(1);
     for (const [slug, page] of Object.entries(additions)) {
       expect(lowBudgetCategories.find(c => c.slug === slug)?.pages.at(-1)?.url).toBe(page.url);
-      expect(page.url).toContain('-nov9-en.jpg');
+      expect(page.url).toMatch(/-en\.jpg$/);
     }
   });
 
@@ -30,8 +30,9 @@ describe('Low Budget bathroom sample addition', () => {
   });
 
   test('preserves the product sizes, model and toilet dimensions', () => {
-    expect(additions['lb-taps'].text).toContain('8cm');
-    expect(additions['lb-taps'].text).toContain('11cm');
+    const tapText = catalogue.taps.pages.slice(-2).map(page => page.text).join('\n');
+    expect(tapText).toContain('8cm');
+    expect(tapText).toContain('11cm');
     expect(additions['lb-basins'].text).toContain('Model 202');
     expect(additions['lb-basins'].text).toContain('520 × 440 × 830 mm');
     expect(additions['lb-toilets'].text).toContain('650 × 380 × 740 mm');

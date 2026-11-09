@@ -5,9 +5,19 @@ import { lowBudgetCategories } from '@/lib/products';
 const taps = catalogue.taps;
 
 describe('low budget taps catalogue (water_tap_2 update)', () => {
-  test('keeps the ten replacement pages and adds the new tap page', () => {
-    expect(taps.pages).toHaveLength(11);
-    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(11);
+  test('keeps the ten replacement pages and adds two separate tap pages', () => {
+    expect(taps.pages).toHaveLength(12);
+    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(12);
+  });
+
+  test('splits the 8cm and 11cm taps onto separate English and French pages', () => {
+    const [zinc, plastic] = taps.pages.slice(-2);
+    expect(zinc.text).toBe('Zinc Alloy\n8cm\nConnecting pipe included');
+    expect(zinc.frText).toBe('Alliage de zinc\n8cm\nFlexible de raccordement inclus');
+    expect(plastic.text).toBe('Plastic Faucet\n11cm\nConnecting pipe included');
+    expect(plastic.frText).toBe('Robinet en plastique\n11cm\nFlexible de raccordement inclus');
+    expect(zinc.url).not.toBe(plastic.url);
+    expect(zinc.frUrl).not.toBe(plastic.frUrl);
   });
 
   test('keeps the five model references in order', () => {
