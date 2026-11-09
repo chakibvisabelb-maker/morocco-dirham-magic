@@ -5,9 +5,9 @@ import { lowBudgetCategories } from '@/lib/products';
 const taps = catalogue.taps;
 
 describe('low budget taps catalogue (water_tap_2 update)', () => {
-  test('includes all ten pages from the replacement source', () => {
-    expect(taps.pages).toHaveLength(10);
-    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(10);
+  test('keeps the ten replacement pages and adds the new tap page', () => {
+    expect(taps.pages).toHaveLength(11);
+    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(11);
   });
 
   test('keeps the five model references in order', () => {
