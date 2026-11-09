@@ -10,6 +10,7 @@ import hmKitchens from '@/assets/catalogues/hm-kitchens.json';
 import showersAdvanced from '@/assets/catalogues/showers-advanced.json';
 import doors from '@/assets/catalogues/doors.json';
 import doorHandles from '@/assets/catalogues/door-handles.json';
+import lbDoors from '@/assets/catalogues/lb-doors';
 
 export type Localized = { fr: string; en: string; ar: string };
 export type CataloguePage = { url: string; width: number; height: number; text: string; convertedPrices: number; frUrl?: string; frText?: string; arUrl?: string; arText?: string; section?: Localized };
@@ -43,12 +44,13 @@ export const lowBudgetCategories: Category[] = [
   { ...lb.toilets, slug: 'lb-toilets', group: LOW_BUDGET, name: L('WC et toilettes', 'Toilets', 'المراحيض'), tagline: L('WC', 'Toilets', 'المراحيض'), description: L('Toilettes suspendues et ensembles avec bâti-support.', 'Wall-hung toilets and concealed-cistern sets.', 'مراحيض معلقة وأطقم بخزان مخفي.'), image: lb.toilets.pages[0]!.url },
   { ...lb.taps, slug: 'lb-taps', group: LOW_BUDGET, name: L('Robinets', 'Water taps', 'الصنابير'), tagline: L('Robinets', 'Taps', 'الصنابير'), description: L('Mitigeurs de lavabo et de cuisine à petit prix.', 'Affordable basin and kitchen taps.', 'خلاطات أحواض ومطابخ بأسعار مناسبة.'), image: lb.taps.pages[0]!.url },
   { ...kitchens, group: LOW_BUDGET, name: L('Cuisines', 'Kitchens', 'المطابخ'), tagline: L('Cuisines', 'Kitchens', 'المطابخ'), description: L('Meubles de cuisine en inox et plans en quartz.', 'Stainless steel kitchen cabinets and quartz countertops.', 'خزائن مطبخ من الستانلس ستيل وأسطح كوارتز.'), image: kitchens.pages[0]!.url },
+  { ...lbDoors, group: LOW_BUDGET, name: L('Portes', 'Doors', 'الأبواب'), tagline: L('Portes', 'Doors', 'الأبواب'), description: L('Portes en bois massif, portes avec âme en nid d’abeille et porte vitrée en aluminium, avec dimensions et finitions.', 'Solid wood, honeycomb-core and aluminium glass doors, with dimensions and finishes.', 'أبواب من الخشب المصمت وبحشوة خلية النحل وأبواب زجاجية من الألمنيوم، مع الأبعاد والتشطيبات.'), image: lbDoors.pages[0]!.url },
 ];
 export const lowBudgetGroup: Category = {
   slug: LOW_BUDGET, pdf: '', pages: lowBudgetCategories.flatMap(c => c.pages),
   name: L('Sanitaire petit budget', 'Low Budget Sanitary', 'الأدوات الصحية الاقتصادية'),
   tagline: L('Sanitaire petit budget', 'Low Budget Sanitary', 'الأدوات الصحية الاقتصادية'),
-  description: L('Meubles, cabines de douche, douches, WC et robinets.', 'Cabinets, shower enclosures, showers, toilets and taps.', 'خزائن وكبائن استحمام ودُش ومراحيض وصنابير.'),
+  description: L('Meubles, vasques, cabines de douche, douches, WC, robinets, cuisines et portes.', 'Cabinets, basins, shower enclosures, showers, toilets, taps, kitchens and doors.', 'خزائن ومغاسل وكبائن استحمام ودُش ومراحيض وصنابير ومطابخ وأبواب.'),
   image: lb.cabinets.pages[0]!.url,
 };
 export const topLevelCategories: Category[] = [...categories, lowBudgetGroup];
