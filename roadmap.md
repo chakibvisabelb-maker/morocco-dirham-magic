@@ -33,3 +33,4 @@
 - [x] Compared all 37 Smart Locks pages with the ten quotation designs; retained four visual matches (Number 1/G3, F7/G10, X7/G7, Number 8/G9), removed the other 33 pages including unmatched covers, and updated English/French PDF pointers and model search. Verified four-page downloads, enlargement and two tests; supplier model equivalence is based on photographs, not identical model codes.
 
 - [x] Restore all 37 original Smart Locks catalogue pages, localized images, search text and full PDF pointers after undoing the quotation-based filtering.
+- [x] Compare Smart Locks against both November attachments; retain seven visual matches (original pages 2, 8, 9, 11, 13, 14 and 22), remove thirty unmatched pages, and synchronize reference search and seven-page English/French PDFs. Verified enlargement, Arabic browsing, downloads and all 32 catalogue tests; visual PDF review found no new clipping or overlap.
