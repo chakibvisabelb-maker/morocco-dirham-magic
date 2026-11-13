@@ -31,3 +31,5 @@
 - [x] Remove Low Budget Taps pages 5 and 6; verified ten remaining pages, removed B003 search, B004 renumbered to page 5, enlargement and ten-page PDF download; eight tests pass.
 - [x] Low Budget Kitchens: retained all fourteen original photos across seven pages, removed measurements and specifications, and added “Price upon Request” beneath every photo. Verified matching language images, removed measurement search, enlargement, mobile display and seven-page PDF download; two tests pass.
 - [x] Compared all 37 Smart Locks pages with the ten quotation designs; retained four visual matches (Number 1/G3, F7/G10, X7/G7, Number 8/G9), removed the other 33 pages including unmatched covers, and updated English/French PDF pointers and model search. Verified four-page downloads, enlargement and two tests; supplier model equivalence is based on photographs, not identical model codes.
+
+- [x] Restore all 37 original Smart Locks catalogue pages, localized images, search text and full PDF pointers after undoing the quotation-based filtering.
