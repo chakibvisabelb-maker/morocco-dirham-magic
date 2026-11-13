@@ -5,9 +5,12 @@ import { lowBudgetCategories } from '@/lib/products';
 const taps = catalogue.taps;
 
 describe('low budget taps catalogue (water_tap_2 update)', () => {
-  test('keeps the ten replacement pages and adds two separate tap pages', () => {
-    expect(taps.pages).toHaveLength(12);
-    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(12);
+  test('removes original pages 5 and 6 while keeping the other ten pages', () => {
+    expect(taps.pages).toHaveLength(10);
+    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(10);
+    expect(taps.pages.some(page => /lb-taps-oct20-0[56]\.jpg$/.test(page.url))).toBe(false);
+    expect(taps.pages[4].url).toContain('lb-taps-oct20-07.jpg');
+    expect(taps.pages.some(page => page.text === 'B003')).toBe(false);
   });
 
   test('splits the 8cm and 11cm taps onto separate English and French pages', () => {
@@ -20,8 +23,8 @@ describe('low budget taps catalogue (water_tap_2 update)', () => {
     expect(zinc.frUrl).not.toBe(plastic.frUrl);
   });
 
-  test('keeps the five model references in order', () => {
-    ['B001', 'B002', 'B003', 'B004', 'B005'].forEach((code, i) => {
+  test('keeps the four remaining model references in order', () => {
+    ['B001', 'B002', 'B004', 'B005'].forEach((code, i) => {
       expect(taps.pages[i * 2]?.text).toBe(code);
       expect(taps.pages[i * 2 + 1]?.text).toBe('');
     });

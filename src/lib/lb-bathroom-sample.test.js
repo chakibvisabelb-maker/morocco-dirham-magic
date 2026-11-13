@@ -12,7 +12,7 @@ const additions = {
 
 describe('Low Budget bathroom sample addition', () => {
   test('puts each source page in its associated product type', () => {
-    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(12);
+    expect(lowBudgetCategories.find(c => c.slug === 'lb-taps')?.pages).toHaveLength(10);
     expect(lowBudgetCategories.find(c => c.slug === 'lb-showers-advanced')?.pages).toHaveLength(11);
     expect(lowBudgetCategories.find(c => c.slug === 'lb-toilets')?.pages).toHaveLength(6);
     expect(lowBudgetCategories.find(c => c.slug === 'lb-basins')?.pages).toHaveLength(1);
