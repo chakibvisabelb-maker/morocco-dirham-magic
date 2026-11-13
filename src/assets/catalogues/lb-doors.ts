@@ -88,7 +88,7 @@ export default {
     {
       url: en03.url, frUrl: fr03.url, arUrl: ar03.url,
       width: 1871, height: 1323, convertedPrices: 0,
-      section: {"fr": "Porte vitrée en aluminium", "en": "Aluminium glass door", "ar": "باب زجاجي من الألمنيوم"},
+      section: {"fr": "Porte en aluminium", "en": "Aluminium door", "ar": "باب من الألمنيوم"},
       text: "BLM001\n204 H x 75W\n814 794 750 2085 2075 2040\nRough opening size\nFrame size\nLeaf size",
       frText: "BLM001\n204 H x 75W\n814 794 750 2085 2075 2040\nOuverture brute\nCadre\nVantail",
       arText: "BLM001\n204 H x 75W\n814 794 750 2085 2075 2040\nمقاس الفتحة الخام\nمقاس الإطار\nمقاس الضلفة",

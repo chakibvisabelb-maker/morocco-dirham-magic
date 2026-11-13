@@ -15,7 +15,7 @@ describe('Low Budget Doors catalogue', () => {
     expect(catalogue.pages.map(page => page.section.en)).toEqual([
       'Wooden doors',
       'Wooden doors',
-      'Aluminium glass door',
+      'Aluminium door',
       'Additional door designs',
       'Additional door designs',
       'Additional door designs',
