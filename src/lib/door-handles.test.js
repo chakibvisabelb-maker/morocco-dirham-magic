@@ -2,8 +2,8 @@ import { test, expect } from 'bun:test';
 import handles from '../assets/catalogues/door-handles.json';
 import { categories, lowBudgetCategories, cataloguePageUrl } from './products';
 
-test('Door handles is a High-Mid catalogue containing all product spreads', () => {
-  expect(categories.find(category => category.slug === 'door-handles')?.pages.length).toBe(140);
+test('Door handles is removed from browsing while keeping its source assets', () => {
+  expect(categories.some(category => category.slug === 'door-handles')).toBe(false);
   expect(lowBudgetCategories.some(category => category.slug === 'door-handles')).toBe(false);
   expect(handles.pages[0].url).toContain('005-en.jpg');
   expect(handles.pages[139].url).toContain('144-en.jpg');

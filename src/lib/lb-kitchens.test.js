@@ -19,6 +19,6 @@ describe('Low Budget kitchen photo-only catalogue', () => {
     }
     expect(kitchens.pdf).toEndWith('/luxora-kitchens-photo-only.pdf');
     expect(lowBudgetCategories.find(category => category.slug === 'kitchens')?.pages).toEqual(kitchens.pages);
-    expect(categories.find(category => category.slug === 'hm-kitchens')?.pages.length).toBe(195);
+    expect(categories.some(category => category.slug === 'hm-kitchens')).toBe(false);
   });
 });
